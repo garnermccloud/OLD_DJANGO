@@ -1,3 +1,5 @@
+import os.path
+
 # Django settings for Procrastigain project.
 
 DEBUG = True
@@ -64,7 +66,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.abspath(os.path.join(os.path.dirname(__file__), '..',  'static').replace('\\','/')),
+    os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'static').replace('\\','/')),
 )
 
 # List of finder classes that know how to find static files in
