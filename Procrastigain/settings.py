@@ -64,7 +64,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    'C:/Users/Garner/PycharmProjects/Procrastigain/static/',
+    os.path.abspath(os.path.join(os.path.dirname(__file__), '..',  'static').replace('\\','/')),
 )
 
 # List of finder classes that know how to find static files in
@@ -101,7 +101,9 @@ ROOT_URLCONF = 'Procrastigain.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'Procrastigain.wsgi.application'
 
-TEMPLATE_DIRS = ('C:/Users/Garner/PycharmProjects/Procrastigain/templates',)
+TEMPLATE_DIRS = (
+    os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'templates').replace('\\','/')),
+)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
