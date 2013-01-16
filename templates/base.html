@@ -1,0 +1,25 @@
+{% load i18n %}
+{% comment %}
+
+This template is a completely 100% generic HTML5 template.
+
+{% endcomment %}
+
+<!DOCTYPE HTML >
+        <html>
+        <head>
+            <link rel="stylesheet" href={{ STATIC_URL }}style.css />
+            <link rel="stylesheet" href={{ STATIC_URL }}screen.css type="text/css" media="screen, projection">
+
+            <link rel="stylesheet" href={{ STATIC_URL }}print.css type="text/css" media="print">
+            <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+            {% block head %}{% endblock %}
+        </head>
+        <body>
+        <div class="container">
+            <div class="span-24 last" id="main area">
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+        </body>
+        </html>

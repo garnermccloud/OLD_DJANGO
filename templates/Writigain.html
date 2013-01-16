@@ -1,0 +1,43 @@
+
+{% extends "index.html" %}
+
+
+{% comment %}
+
+Main page of the Writigain.
+
+{% endcomment %}
+
+{% block title %}
+   | Writigain
+{% endblock %}
+
+
+{% block content %}
+    <section>
+        <h2>Welcome, {{ user.username }}</h2>
+        <p>This is Writigain.</p>
+    </section>
+<div id="container" style="width:1000px">
+    <div align="center" id="textbox" style="float: left; width: 500px;">
+        <label>
+            <textarea rows="25" cols="50"></textarea>
+        </label>
+
+    </div>
+    <div id="write!" style="float: left; width: 200px;">
+        <span style="font-size: large;">{{ user.username }}<-------WRITE!</span>
+    </div>
+</div>
+<div>
+    <script type="text/javascript">
+        $('textarea').textareaCounter();
+    </script>
+
+</div>
+<div style="float: left ">
+
+    <input type="button" id="toggleTimer" value="Start count!" onclick="doTimer()" />
+    <p id="txt">0</p>
+</div>
+{% endblock %}
