@@ -18,6 +18,7 @@ urlpatterns = patterns('',
      url(r'^writigain/$', 'Writigain.views.index', name='home'),
      url(r'^listigain/$', 'Listigain.views.index', name='home'),
     url(r'^listigain/add$', 'Listigain.views.add', name='home'),
+    url(r'^listigain/(?P<task_id>\d+)/delete$', 'Listigain.views.delete', name='home'),
      url(r'^main/$', 'Main.views.index', name='home'),
 
     # url(r'^Procrastigain/', include('Procrastigain.foo.urls')),

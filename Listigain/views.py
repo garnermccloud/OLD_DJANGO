@@ -1,14 +1,14 @@
 # Create your views here.
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
-from django.shortcuts import render_to_response, render
+from django.shortcuts import render_to_response, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.core.context_processors import csrf
 from django.template.context import RequestContext
 from Listigain.models import Task
-from Listigain.models import TaskForm
+from Listigain.models import TaskForm, DeleteTask
 
 
 @login_required
@@ -44,3 +44,9 @@ def add(request):
     return render(request, 'addtask.html', {
         'form': form,
         })
+
+def delete(request, task_id):
+    task = get_object_or_404(Task, pk=task_id)
+    if request.method == "POST":
+        task.delete()
+    return HttpResponseRedirect('/listigain/')
