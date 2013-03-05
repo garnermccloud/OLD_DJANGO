@@ -22,10 +22,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Listigain.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Listigain.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/Listigain.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="66" selection-start="825" selection-end="825" vertical-scroll-proportion="-10.961538">
+            <state line="70" column="39" selection-start="2584" selection-end="2584" vertical-scroll-proportion="0.5736677">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="screen.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/screen.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ie.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/ie.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -58,10 +85,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Listigain/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="717" selection-end="717" vertical-scroll-proportion="0.5072464">
+            <state line="28" column="0" selection-start="717" selection-end="717" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -72,37 +99,10 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Listigain/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="21" selection-start="2097" selection-end="2097" vertical-scroll-proportion="0.0">
+            <state line="51" column="38" selection-start="2118" selection-end="2118" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#26#64#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="indexNL.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/indexNL.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="56" selection-start="715" selection-end="715" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/main.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="0" selection-end="276" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register_success.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/register_success.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="13" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -139,9 +139,9 @@
         <option value="$PROJECT_DIR$/Procrastigain/settings.py" />
         <option value="$PROJECT_DIR$/templates/Writigain.html" />
         <option value="$PROJECT_DIR$/Procrastigain/urls.py" />
+        <option value="$PROJECT_DIR$/Listigain/models.py" />
         <option value="$PROJECT_DIR$/Listigain/views.py" />
         <option value="$PROJECT_DIR$/templates/Listigain.html" />
-        <option value="$PROJECT_DIR$/Listigain/models.py" />
       </list>
     </option>
   </component>
@@ -648,21 +648,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="14" selection-start="0" selection-end="967" vertical-scroll-proportion="-10.653846" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="46" selection-start="721" selection-end="721" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Procrastigain/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="76" column="61" selection-start="2725" selection-end="2725" vertical-scroll-proportion="0.0" />
@@ -698,9 +683,11 @@
         <state line="14" column="96" selection-start="624" selection-end="624" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Writigain/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/addtask.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="23" column="11" selection-start="455" selection-end="462" vertical-scroll-proportion="-7.0384617">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Procrastigain/urls.py">
@@ -710,35 +697,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/addtask.html">
+    <entry file="file://$PROJECT_DIR$/Writigain/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="11" selection-start="455" selection-end="462" vertical-scroll-proportion="-7.0384617">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Listigain/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="21" selection-start="2097" selection-end="2097" vertical-scroll-proportion="0.0">
+        <state line="51" column="38" selection-start="2118" selection-end="2118" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#26#64#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Listigain.html">
+    <entry file="file://$PROJECT_DIR$/Listigain/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="66" selection-start="825" selection-end="825" vertical-scroll-proportion="-10.961538">
+        <state line="28" column="0" selection-start="717" selection-end="717" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Listigain/models.py">
+    <entry file="file://$PROJECT_DIR$/static/screen.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="717" selection-end="717" vertical-scroll-proportion="0.5072464">
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/ie.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Listigain.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="39" selection-start="2584" selection-end="2584" vertical-scroll-proportion="0.5736677">
+          <folding />
         </state>
       </provider>
     </entry>

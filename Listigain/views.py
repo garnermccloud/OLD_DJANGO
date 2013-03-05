@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.core.context_processors import csrf
 from django.template.context import RequestContext
 from Listigain.models import Task
-from Listigain.models import TaskForm, DeleteTask
+from Listigain.models import TaskForm
 
 
 @login_required
@@ -45,8 +45,10 @@ def add(request):
         'form': form,
         })
 
+@login_required
 def delete(request, task_id):
     task = get_object_or_404(Task, pk=task_id)
     if request.method == "POST":
-        task.delete()
+        if  request.user == task.user:
+            task.delete()
     return HttpResponseRedirect('/listigain/')
