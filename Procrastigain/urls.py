@@ -3,6 +3,7 @@ from django.conf.urls import patterns, include, url
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 from django.contrib.auth.views import login, logout
+from django.views.generic import TemplateView
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -20,6 +21,9 @@ urlpatterns = patterns('',
     url(r'^listigain/add$', 'Listigain.views.add', name='home'),
     url(r'^listigain/(?P<task_id>\d+)/delete$', 'Listigain.views.delete', name='home'),
      url(r'^main/$', 'Main.views.index', name='home'),
+    url(r'^listigain/initialize_quad$', 'Listigain.views.initialize_quad', name='initialize_quad'),
+    url(r'^listigain/quad$', TemplateView.as_view(template_name="quad.html")),
+
 
     # url(r'^Procrastigain/', include('Procrastigain.foo.urls')),
 

@@ -10,6 +10,7 @@ from django.template.context import RequestContext
 
 
 
+
 @login_required
 def index(request):
     """

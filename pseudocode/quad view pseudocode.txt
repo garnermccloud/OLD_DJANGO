@@ -1,0 +1,56 @@
+VIEW create initial quad view:
+
+-what: pick 4 tasks from users task list and display them.  
+       User clicks task and it inserts another task from list that wasnt already chosen
+
+create empty quad list with 4 empty slots with "empty" as place holder
+
+make user list with user's tasks sorted by priorty
+
+for task in user list
+    put task in quad list
+    if count is equal to 4
+        break loop
+    endif
+endfor
+
+return the quad list
+
+
+
+VIEW: add items to quad view
+
+receive used task list, current quad list, and clicked task
+
+update position = clicked task position
+
+add clicked task to used task
+
+make user list with user's tasks sorted by priorty
+
+new task = "empty"
+
+for task in user list
+    for usedtask in used list
+          if task is equal to usedtask
+              go to next task in user task
+          else
+              go to next used task
+    endfor
+    
+    new task = task
+    break user list for loop
+endfor
+
+for task in quad list
+    if task == clicked task
+        replace clicked task in quadlist with new task
+        break
+
+return the quad list        
+
+    
+    
+    
+
+

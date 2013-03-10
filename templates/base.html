@@ -13,13 +13,31 @@ This template is a completely 100% generic HTML5 template.
 
             <link rel="stylesheet" href={{ STATIC_URL }}print.css type="text/css" media="print">
             <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-            {% block head %}{% endblock %}
+
+
+
+            <link rel="stylesheet" href={{ STATIC_URL }}wordconfuse.css />
+
         </head>
+
+        {% block head %}{% endblock %}
         <body>
         <div class="container">
             <div class="span-24 last" id="main area">
                 {% block body %}{% endblock %}
             </div>
         </div>
+        <script src="{{ STATIC_PREFIX }}js/jquery-1.5.1.min.js" type="text/javascript"
+                charset="utf-8"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script src="{{ STATIC_PREFIX }}js/jquery-ui-1.8.9.custom.min.js" type="text/javascript"
+                charset="utf-8"></script>
+        <script type="text/javascript">
+
+            {% include 'wordconfuse.js' %}
+            {% include 'writigain.js' %}
+
+        </script>
+
         </body>
         </html>

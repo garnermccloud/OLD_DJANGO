@@ -26,10 +26,11 @@ class Task(models.Model):
     content = models.CharField(max_length=200)
     priority = models.IntegerField(choices=PRIORITY_TYPES)
     complete = models.BooleanField()
+    skip = models.BooleanField()
 
 
 class TaskForm(ModelForm):
     class Meta:
         model = Task
-        exclude = ('complete',)
+        exclude = ('complete','skip')
 

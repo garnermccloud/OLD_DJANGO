@@ -1,6 +1,6 @@
 # Create your views here.
 from django.contrib.auth import logout
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django import forms
@@ -9,6 +9,8 @@ from django.core.context_processors import csrf
 from django.template.context import RequestContext
 from Listigain.models import Task
 from Listigain.models import TaskForm
+from django.utils import simplejson
+from time import time
 
 
 @login_required
@@ -52,3 +54,73 @@ def delete(request, task_id):
         if  request.user == task.user:
             task.delete()
     return HttpResponseRedirect('/listigain/')
+
+
+# pick 4 tasks from users task list and display them.
+@login_required
+def initialize_quad(request):
+    """
+    make user list with user's tasks sorted by priority
+    """
+    user_tasks = Task.objects.filter(user=request.user).order_by('-priority','category')
+    quad_tasks = list()
+    for i in range(0,4):
+        empty = {
+        'id': -1,
+        'content': "empty",
+        'index': i
+        }
+        quad_tasks.append(empty)
+
+    #make user list with user's tasks sorted by priority
+    count = 0
+    for task in user_tasks:
+        quad_tasks[count]['id'] = task.pk
+        quad_tasks[count]['content'] = task.content
+        quad_tasks[count]['index'] = count
+        count+=1
+        if count==4:
+            break
+
+
+    # record the start time in a session variable, this will
+    # be used later in the gameover view to calculate how much
+    # time it took to complete the game
+    request.session['start_game'] = float("%0.2f" % time())
+
+    # return the id, content, and index of each tasks in the quad in a JSON response
+    return HttpResponse(simplejson.dumps(quad_tasks), mimetype='application/json')
+
+@login_required
+def return_quad(request):
+    """
+    make user list with user's tasks sorted by priority
+    """
+    user_tasks = Task.objects.filter(user=request.user).order_by('-priority','category')
+    quad_tasks = list()
+    for i in range(0,4):
+        empty = {
+            'id': -1,
+            'content': "empty",
+            'index': i
+        }
+        quad_tasks.append(empty)
+
+    #make user list with user's tasks sorted by priority
+    count = 0
+    for task in user_tasks:
+        quad_tasks[count]['id'] = task.pk
+        quad_tasks[count]['content'] = task.content
+        quad_tasks[count]['index'] = count
+        count+=1
+        if count==4:
+            break
+
+
+    # record the start time in a session variable, this will
+    # be used later in the gameover view to calculate how much
+    # time it took to complete the game
+    request.session['start_game'] = float("%0.2f" % time())
+
+    # return the id, content, and index of each tasks in the quad in a JSON response
+    return HttpResponse(simplejson.dumps(quad_tasks), mimetype='application/json')
