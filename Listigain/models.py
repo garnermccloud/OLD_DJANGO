@@ -25,12 +25,12 @@ class Task(models.Model):
     category = models.CharField(max_length=200,choices=CATEGORY_TYPES)
     content = models.CharField(max_length=200)
     priority = models.IntegerField(choices=PRIORITY_TYPES)
-    complete = models.BooleanField()
+    completed = models.BooleanField()
     skip = models.BooleanField()
 
 
 class TaskForm(ModelForm):
     class Meta:
         model = Task
-        exclude = ('complete','skip')
+        exclude = ('skip')
 

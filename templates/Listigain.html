@@ -26,9 +26,9 @@ Main page of the Writigain.
        <br>
            {% if educational_task_list %}
                    {% for task in educational_task_list %}
-                       <form action="/listigain/{{ task.id }}/delete" method="post"> {% csrf_token %}
+                       <form action="/listigain/{{ task.id }}/edit" > {% csrf_token %}
                        <p>{{ task.content }}:  {{ task.priority }}
-                            <input type="submit" value="Delete" />
+                            <input type="submit" value="Edit" />
                        </p>
                        </form>
                    {% endfor %}
@@ -41,9 +41,9 @@ Main page of the Writigain.
             <br>
             {% if social_task_list %}
                 {% for task in social_task_list %}
-                    <form action="/listigain/{{ task.id }}/delete" method="post"> {% csrf_token %}
+                    <form action="/listigain/{{ task.id }}/edit" > {% csrf_token %}
                         <p>{{ task.content }}:  {{ task.priority }}
-                            <input type="submit" value="Delete" />
+                            <input type="submit" value="Edit" />
                         </p>
                     </form>
                 {% endfor %}
@@ -56,9 +56,9 @@ Main page of the Writigain.
             <br>
             {% if physical_task_list %}
                 {% for task in physical_task_list %}
-                    <form action="/listigain/{{ task.id }}/delete" method="post"> {% csrf_token %}
+                    <form action="/listigain/{{ task.id }}/edit" > {% csrf_token %}
                         <p>{{ task.content }}:  {{ task.priority }}
-                            <input type="submit" value="Delete" />
+                            <input type="submit" value="Edit" />
                         </p>
                     </form>
                 {% endfor %}
@@ -71,9 +71,9 @@ Main page of the Writigain.
             <br>
             {% if personal_task_list %}
                 {% for task in personal_task_list %}
-                    <form action="/listigain/{{ task.id }}/delete" method="post"> {% csrf_token %}
+                    <form action="/listigain/{{ task.id }}/edit" > {% csrf_token %}
                         <p>{{ task.content }}:  {{ task.priority }}
-                            <input type="submit" value="Delete" />
+                            <input type="submit" value="Edit" />
                         </p>
                     </form>
                 {% endfor %}

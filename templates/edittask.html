@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+
+{% comment %}
+
+Main page of the Writigain.
+
+{% endcomment %}
+
+{% block title %}
+    Listigain
+{% endblock %}
+
+
+{% block content %}
+    <section>
+        <h2>Welcome, {{ user.username }}</h2>
+        <p>This is Listigain.</p>
+    </section>
+    <div id="container" style="width:1000px">
+    <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+    </form>
+    <form action="/listigain/{{ task.id }}/delete" method="post">{% csrf_token %}
+        <input type="submit" value="Delete" />
+    </form>
+    </div>
+{% endblock %}

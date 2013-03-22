@@ -16,12 +16,14 @@ urlpatterns = patterns('',
     (r'^register_success/$', 'Main.views.register_success'),
 
     # Examples:
-     url(r'^writigain/$', 'Writigain.views.index', name='home'),
-     url(r'^listigain/$', 'Listigain.views.index', name='home'),
-    url(r'^listigain/add$', 'Listigain.views.add', name='home'),
-    url(r'^listigain/(?P<task_id>\d+)/delete$', 'Listigain.views.delete', name='home'),
-     url(r'^main/$', 'Main.views.index', name='home'),
+     url(r'^writigain/$', 'Writigain.views.index', name='writigain'),
+     url(r'^listigain/$', 'Listigain.views.index', name='listigain'),
+    url(r'^listigain/add$', 'Listigain.views.add', name='add'),
+    url(r'^listigain/(?P<task_id>\d+)/delete$', 'Listigain.views.delete', name='delete'),
+    url(r'^listigain/(?P<task_id>\d+)/edit$', 'Listigain.views.edit', name='edit'),
+     url(r'^main/$', 'Main.views.index', name='main'),
     url(r'^listigain/initialize_quad$', 'Listigain.views.initialize_quad', name='initialize_quad'),
+    url(r'^listigain/(?P<task_id>\d+)/return_quad$', 'Listigain.views.return_quad', name='return_quad'),
     url(r'^listigain/quad$', TemplateView.as_view(template_name="quad.html")),
 
 

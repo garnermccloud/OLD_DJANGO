@@ -79,28 +79,33 @@ var game = {
             game.submitted = true;
         }
         // check to see if the word is correct
-        id = $(this).attr('id');
-        if (id == 'a' + game.wd['s']) {
-            clearInterval(game.s); // stop the countdown timer
-            game.count++; // increase the correct answer count
-            $(this).css({
-                'opacity':'.6',
-                'background':'#3366cc'
-            });
-            $('.nt').css({
-                'backgroundImage':'url("{{STATIC_PREFIX}}img/goodjob.png")'
-            });
-            $('.nt').fadeIn('slow', function () {
-                setTimeout(game.show_answer, 300);
-            });
 
-        } else {
-            $('.nt').css({
-                'backgroundImage':'url("{{STATIC_PREFIX}}img/wronganswer.png")'
-            });
-            $('.nt').fadeIn('slow', function () {
-                setTimeout(game.show_answer, 300);
-            });
+        id = $(this).attr('id');
+        for (var i = 0; i < game.ANSWERS; i++) {
+            if (id == 'a' + i) {
+                $.ajax({
+                    url:'/listigain/'+game.wl[i]['id']+'/return_quad',
+                    cache:'false',
+                    dataType:'json',
+                    async:'false',
+                    success:function (quad_tasks) {
+
+                        game.wl = quad_tasks;
+                        // preload images
+                        jQuery.each(game.wl, function (index, value) {
+
+                            if (index == game.wl.length - 1) {
+                                // last image has loaded
+                                game.new_turn();
+                            }
+                        });
+                    },
+                    error:function () {
+                        console.log("ERROR: initialize_quad");
+                    }
+                });
+
+            }
         }
     },
 /*
@@ -156,7 +161,6 @@ var game = {
         } else {
             $('.game-questions').fadeOut('slow', function () {
                 $('.game-info').html('Turn ' + game.turn + ' / 10');
-                game.wd = game.wl[game.turn - 1];
                 time = game.unix_time();
                 game.sec_left = game.TURNTIME;
                 $('.ct').html(game.sec_left);
