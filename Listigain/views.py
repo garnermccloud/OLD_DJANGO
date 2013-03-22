@@ -84,7 +84,7 @@ def initialize_quad(request):
     """
     make user list with user's tasks sorted by priority
     """
-    user_tasks = Task.objects.filter(user=request.user, complete=False).order_by('-priority','category')
+    user_tasks = Task.objects.filter(user=request.user, completed=False).order_by('-priority','category')
     quad_tasks = list()
     for i in range(0,4):
         empty = {
@@ -115,14 +115,14 @@ def return_quad(request, task_id):
     """
     make user list with user's tasks sorted by priority
     """
-    #returned task is now completed so mark it complete in the database
+    #returned task is now completed so mark it completed in the database
     completed_task = get_object_or_404(Task, pk=task_id)
     if completed_task.user == request.user:
-        Task.objects.filter(id=completed_task.pk).update(complete=True)
+        Task.objects.filter(id=completed_task.pk).update(completed=True)
 
 
 
-    user_tasks = Task.objects.filter(user=request.user, complete=False).order_by('-priority','category')
+    user_tasks = Task.objects.filter(user=request.user, completed=False).order_by('-priority','category')
     quad_tasks = list()
     for i in range(0,4):
         empty = {
