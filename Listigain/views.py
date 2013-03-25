@@ -146,3 +146,5 @@ def return_quad(request, task_id):
 
     # return the id, content, and index of each tasks in the quad in a JSON response
     return HttpResponse(simplejson.dumps(quad_tasks), mimetype='application/json')
+
+

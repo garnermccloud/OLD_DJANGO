@@ -38,13 +38,14 @@ var game = {
         this.s = null;  //setInterval (for the countdown timer)
         this.turn = 1; // turn count
         this.sec_left = null; // number of seconds left for the countdown timer
-        this.wd = null;  // current word group in quiz
-        this.count = 0; // number of correct answers
         this.submitted = true;
+        this.id = null;
         // setup click handlers for answers
         $('.ab').each(function () {
-            $(this).click(game.answer_click);
+            $(this).click(game.answer_click1);
         });
+        $('.complete').click(game.answer_click2);
+
         // grab the word list
         console.log("before initialize_quad");
         $.ajax({
@@ -71,8 +72,24 @@ var game = {
 
 
     },
+    answer_click1:function () {
 
-    answer_click:function () {
+        // check to see if the word is correct
+
+        game.id = $(this).attr('id');
+        for (var i = 0; i < game.ANSWERS; i++) {
+            if (game.id == 'a' + i) {
+                $('.game').hide();
+                $('.taskscreen').fadeIn('500');
+                $('.task_info').html('<p>' + game.wl[i]['content'] + '</p>');
+                $('.complete').html('<p><a href="javascript:void(0)"> Click here when complete!</a></p>');
+
+
+            }
+        }
+    },
+
+    answer_click2:function () {
         if (game.submitted) {
             return false;
         } else {
@@ -80,9 +97,8 @@ var game = {
         }
         // check to see if the word is correct
 
-        id = $(this).attr('id');
         for (var i = 0; i < game.ANSWERS; i++) {
-            if (id == 'a' + i) {
+            if (game.id == 'a' + i) {
                 $.ajax({
                     url:'/listigain/'+game.wl[i]['id']+'/return_quad',
                     cache:'false',
@@ -160,10 +176,13 @@ var game = {
 
         } else {
             $('.game-questions').fadeOut('slow', function () {
-                $('.game-info').html('Turn ' + game.turn + ' / 10');
+                //$('.game-info').html('Turn ' + game.turn + ' / 10');
                 time = game.unix_time();
                 game.sec_left = game.TURNTIME;
-                $('.ct').html(game.sec_left);
+                for (var j = 0; j < game.ANSWERS; j++) {
+                    $('div#a' + j + ' .answer').html('');
+                }
+                //$('.ct').html(game.sec_left);
                 game.s = setInterval(function () {
                     if (game.sec_left <= 1) {
                         if (game.submitted) {
@@ -171,19 +190,19 @@ var game = {
                         } else {
                             game.submitted = true;
                         }
-                        clearInterval(game.s); // stop the countdown timer
-                        $('.nt').css({
-                            'backgroundImage':'url("{{STATIC_PREFIX}}img/outoftime.png")'
-                        });
-                        $('.nt').fadeIn('slow', function () {
-                            game.show_answer();
-                        });
+                       // clearInterval(game.s); // stop the countdown timer
+                      //  $('.nt').css({
+                     //       'backgroundImage':'url("{{STATIC_PREFIX}}img/outoftime.png")'
+                      //  });
+                       // $('.nt').fadeIn('slow', function () {
+                       //     game.show_answer();
+                       // });
 
                     } else {
                         game.sec_left = game.TURNTIME - (game.unix_time() - time);
                         if (game.sec_left >= 1) {
                             // just to be paranoid..
-                            $('.ct').html(game.sec_left);
+                          //  $('.ct').html(game.sec_left);
                         }
                     }
                 }, 1000);
@@ -192,10 +211,27 @@ var game = {
                 $('.ab').each(function () {
                     $(this).removeAttr("style");
                 });
+
                 for (var j = 0; j < game.ANSWERS; j++) {
+                    if (j == game.ANSWERS - 1) {
+                        if (game.wl[j]['id'] == -1) {
+                            window.location.replace('finished_quad');
+                        }
+                    }
+                    if (game.wl[j]['id'] != -1) {
+                        break;
+                    }
+                }
+                for (var j = 0; j < game.ANSWERS; j++) {
+                    if (game.wl[j]['id'] == -1) {
+                        continue;
+                    }
+                    else {
                     $('div#a' + j + ' .answer').html('<p><a href="javascript:void(0)">' + game.wl[j]['content'] + '</a></p>');
+                    }
                 }
                 $('.game-questions').fadeIn('slow', function () {
+                    $('.taskscreen').hide();
                     $('.game').fadeIn('500'); // for the first time
                     game.submitted = false; // finally we allow clicks
                 });

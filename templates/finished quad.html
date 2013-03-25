@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+
+
+{% comment %}
+
+Main page of the Writigain.
+
+{% endcomment %}
+
+{% block title %}
+    Listigain
+{% endblock %}
+
+
+{% block content %}
+    <section>
+        <h2>{{ user.username }}, you completed your tasks! Congrats!</h2>
+        <p>Return to <a href="/listigain/">Listigain</a></p>
+    </section>
+{% endblock %}
