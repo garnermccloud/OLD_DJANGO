@@ -22,8 +22,11 @@ Main page of the Writigain.
         {{ form.as_p }}
         <input type="submit" value="Submit" />
     </form>
-    <form action="/listigain/{{ task.id }}/delete" method="post">{% csrf_token %}
-        <input type="submit" value="Delete" />
+    <form onsubmit="return confirm('Are you sure you want to permanently delete this task?'); " action="/listigain/{{ task.id }}/delete" method="post">{% csrf_token %}
+        <input type="submit" value="Delete"  />
     </form>
+        <form action="/listigain/" >
+            <input type="submit" value="Cancel" />
+        </form>
     </div>
 {% endblock %}

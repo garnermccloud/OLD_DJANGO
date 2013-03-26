@@ -44,7 +44,7 @@ var game = {
         $('.ab').each(function () {
             $(this).click(game.answer_click1);
         });
-        $('.complete').click(game.answer_click2);
+        $('#complete').click(game.answer_click2);
 
         // grab the word list
         console.log("before initialize_quad");
@@ -79,10 +79,10 @@ var game = {
         game.id = $(this).attr('id');
         for (var i = 0; i < game.ANSWERS; i++) {
             if (game.id == 'a' + i) {
-                $('.game').hide();
-                $('.taskscreen').fadeIn('500');
-                $('.task_info').html('<p>' + game.wl[i]['content'] + '</p>');
-                $('.complete').html('<p><a href="javascript:void(0)"> Click here when complete!</a></p>');
+                $('#game').hide();
+                $('#taskscreen').fadeIn('500');
+                $('#task_info').html('<p>' + game.wl[i]['content'] + '</p>');
+                $('#complete').html('<p><a href="javascript:void(0)"> Click here when complete!</a></p>');
 
 
             }
@@ -206,7 +206,7 @@ var game = {
                         }
                     }
                 }, 1000);
-                $('.qb').html('QUAD TITLE');
+                $('#qb').html('The Quad');
                 // reset the answer board
                 $('.ab').each(function () {
                     $(this).removeAttr("style");
@@ -227,12 +227,13 @@ var game = {
                         continue;
                     }
                     else {
-                    $('div#a' + j + ' .answer').html('<p><a href="javascript:void(0)">' + game.wl[j]['content'] + '</a></p>');
+                    $('div#a' + j + ' .answer').html('<a href="javascript:void(0)" ><div class="span-12 center" style=" background-color: grey; height: 100px; display: table; ">' +
+                        '<div style="display: table-cell; vertical-align: middle; font: bold; font-size: 16pt;"> <p>' + game.wl[j]['content'] + '</p></div></div></a>');
                     }
                 }
                 $('.game-questions').fadeIn('slow', function () {
-                    $('.taskscreen').hide();
-                    $('.game').fadeIn('500'); // for the first time
+                    $('#taskscreen').hide();
+                    $('#game').fadeIn('500'); // for the first time
                     game.submitted = false; // finally we allow clicks
                 });
                 game.turn++;

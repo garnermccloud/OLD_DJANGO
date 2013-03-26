@@ -6,27 +6,32 @@
     </div>
     <div class="spash-buttons">
         <div class="new">
-            <a  href="javascript:void(0)">Start Quad</a>
+            <div class="span-24 last center" >
+                <a  href="javascript:void(0)"><div class="span-8 last center " style=" background-color: grey; height: 100px; display: table; ">
+                <div style="display: table-cell; vertical-align: middle; font: bold; font-size: 16pt;">Start Quad</div>
+            </div></a>
+            </div>
         </div>
     </div>
 </div>
 <div class="gameover"></div>
-<div class="taskscreen">
-    <div class="task_info" ></div>
-    <div class="complete"></div>
+<div id="taskscreen">
+    <div id="task_info" ></div>
+    <div id="complete"></div>
 </div>
-<div class="game">
+<div id="game" class="span-24" style="text-align: center">
     <div class="game-header">
     </div>
     <div class="game-info">
     </div>
     <div class="game-questions">
-        <div class="qb" >
+        <div id="qb" class="span-24 last" style="text-align: center; font: bold; font-size: 24pt; height: 50px">
         </div>
-        <div id="a0" class="ab"><div class="abox"> <div class="answer"></div></div></div>
-        <div id="a1" class="ab"><div class="abox"><div class="answer"></div></div></div>
-        <div id="a2" class="ab"><div class="abox"><div class="answer"></div></div></div>
-        <div id="a3" class="ab"><div class="abox"><div class="answer"></div></div></div>
+        <div class="span-12"><div id="a0" class="ab"><div class="abox"> <div class="answer"></div></div></div></div>
+        <div class="span-12 last"><div id="a1" class="ab"><div class="abox"><div class="answer"></div></div></div></div>
+        <div class="span-24 last" style="height: 20px"></div>
+        <div class="span-12"><div id="a2" class="ab"><div class="abox"><div class="answer"></div></div></div></div>
+        <div class="span-12 last"><div id="a3" class="ab"><div class="abox"><div class="answer"></div></div></div></div>
     </div>
 </div>
 {% endblock %}
