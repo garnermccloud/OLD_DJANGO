@@ -81,8 +81,9 @@ var game = {
             if (game.id == 'a' + i) {
                 $('#game').hide();
                 $('#taskscreen').fadeIn('500');
-                $('#task_info').html('<p>' + game.wl[i]['content'] + '</p>');
-                $('#complete').html('<p><a href="javascript:void(0)"> Click here when complete!</a></p>');
+                $('#task_info').html('<div class="span-24" style="text-align: center; height: 60px; font-size: 36pt"><p> ' + game.wl[i]['content'] + '</p></div>');
+                $('#complete').html('<div class="span-9">&nbsp;</div> <a href="javascript:void(0)"> <div class="span-6 center" style=" background-color: grey; height: 50px; display: table; ">' +
+                    '<div style="display: table-cell; vertical-align: middle; font: bold; font-size: 16pt;">Click here when complete!</div></div></a>');
 
 
             }
@@ -228,7 +229,7 @@ var game = {
                     }
                     else {
                     $('div#a' + j + ' .answer').html('<a href="javascript:void(0)" ><div class="span-12 center" style=" background-color: grey; height: 100px; display: table; ">' +
-                        '<div style="display: table-cell; vertical-align: middle; font: bold; font-size: 16pt;"> <p>' + game.wl[j]['content'] + '</p></div></div></a>');
+                        '<div style="display: table-cell; vertical-align: middle; font: bold; font-size: 16pt;">' + game.wl[j]['content'] + '</div></div></a>');
                     }
                 }
                 $('.game-questions').fadeIn('slow', function () {
