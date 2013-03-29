@@ -26,55 +26,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="edittask.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/edittask.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="13" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="53" selection-start="689" selection-end="689" vertical-scroll-proportion="-0.65384614">
+            <state line="9" column="14" selection-start="155" selection-end="155" vertical-scroll-proportion="1.9615384">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="33" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="screen.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/screen.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="309" column="46" selection-start="13356" selection-end="13361" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="quad.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="quad.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/quad.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="232" column="52" selection-start="7991" selection-end="7991" vertical-scroll-proportion="0.41320294">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="quad.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/quad.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="27" selection-start="979" selection-end="979" vertical-scroll-proportion="-0.84615386">
+            <state line="232" column="52" selection-start="7991" selection-end="7991" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -83,7 +47,43 @@
       <file leaf-file-name="indexNL.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/indexNL.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="40" column="12" selection-start="1623" selection-end="1623" vertical-scroll-proportion="-7.3846154">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="500.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/500.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="7" selection-start="166" selection-end="166" vertical-scroll-proportion="0.21464646">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="0" selection-start="208" selection-end="2375" vertical-scroll-proportion="-5.230769">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="404.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/404.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="25" selection-start="25" selection-end="25" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Procrastigain/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="22" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -128,13 +128,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/Writigain.js" />
-        <option value="$PROJECT_DIR$/templates/Writigain.html" />
-        <option value="$PROJECT_DIR$/Listigain/models.py" />
         <option value="$PROJECT_DIR$/templates/finished quad.html" />
         <option value="$PROJECT_DIR$/Procrastigain/urls.py" />
         <option value="$PROJECT_DIR$/static/wordconfuse.css" />
-        <option value="$PROJECT_DIR$/Procrastigain/settings.py" />
         <option value="$PROJECT_DIR$/templates/wordconfuse.js" />
         <option value="$PROJECT_DIR$/static/style.css" />
         <option value="$PROJECT_DIR$/templates/edittask.html" />
@@ -144,6 +140,10 @@
         <option value="$PROJECT_DIR$/Listigain/views.py" />
         <option value="$PROJECT_DIR$/templates/quad.html" />
         <option value="$PROJECT_DIR$/templates/quad.js" />
+        <option value="$PROJECT_DIR$/templates/404.html" />
+        <option value="$PROJECT_DIR$/Procrastigain/settings.py" />
+        <option value="$PROJECT_DIR$/templates/indexNL.html" />
+        <option value="$PROJECT_DIR$/templates/500.html" />
       </list>
     </option>
   </component>
@@ -542,9 +542,9 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.models" />
       <item index="1" class="java.lang.String" itemvalue="Query Language Console.Default" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Python Console" />
-      <item index="3" class="java.lang.String" itemvalue="Python.setup" />
-      <item index="4" class="java.lang.String" itemvalue="Django server.Procrastigain" />
+      <item index="2" class="java.lang.String" itemvalue="Django server.Procrastigain" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Python Console" />
+      <item index="4" class="java.lang.String" itemvalue="Python.setup" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -673,18 +673,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Procrastigain/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="96" selection-start="1372" selection-end="1372" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/finished quad.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="14" selection-start="323" selection-end="323" vertical-scroll-proportion="-10.846154" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Writigain/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="399" selection-end="645" vertical-scroll-proportion="0.0">
@@ -694,23 +682,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Procrastigain/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="23" selection-start="2274" selection-end="2274" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/print.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="25" selection-start="588" selection-end="588" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/edittask.html">
@@ -730,13 +704,6 @@
     <entry file="file://$PROJECT_DIR$/static/screen.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="309" column="46" selection-start="13356" selection-end="13361" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/indexNL.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -764,13 +731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="53" selection-start="689" selection-end="689" vertical-scroll-proportion="-0.65384614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/quad.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="27" selection-start="979" selection-end="979" vertical-scroll-proportion="-0.84615386">
@@ -780,7 +740,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/quad.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="232" column="52" selection-start="7991" selection-end="7991" vertical-scroll-proportion="0.41320294">
+        <state line="232" column="52" selection-start="7991" selection-end="7991" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="14" selection-start="155" selection-end="155" vertical-scroll-proportion="1.9615384">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="25" selection-start="25" selection-end="25" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procrastigain/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="22" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="208" selection-end="2375" vertical-scroll-proportion="-5.230769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/indexNL.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="12" selection-start="1623" selection-end="1623" vertical-scroll-proportion="-7.3846154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/500.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="7" selection-start="166" selection-end="166" vertical-scroll-proportion="0.21464646">
           <folding />
         </state>
       </provider>
