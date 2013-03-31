@@ -23,7 +23,7 @@ def index(request):
     social_task_list = Task.objects.filter(user=request.user, category="SOC")
     physical_task_list = Task.objects.filter(user=request.user, category="PHY")
     personal_task_list = Task.objects.filter(user=request.user, category="PER")
-    return render_to_response('Listigain.html',{'educational_task_list': educational_task_list,
+    return render_to_response('listigain.html',{'educational_task_list': educational_task_list,
                                                 'social_task_list': social_task_list,
                                                 'physical_task_list': physical_task_list,
                                                 'personal_task_list': personal_task_list,},

@@ -1,12 +1,20 @@
 import os.path
 
+import socket
+
+
 # Django settings for Procrastigain project.
 
-DEBUG = False
-TEMPLATE_DEBUG = False
+
+if socket.gethostname() == 'Garner-PC':
+    DEBUG = TEMPLATE_DEBUG = True
+else:
+    DEBUG = TEMPLATE_DEBUG = False
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+     ('Garner McCloud', 'garnermccloud@gmail.com'),
+     ('David Freifeld', 'fryguy1326@gmail.com'),
+     ('Di Pan', 'misterdipan@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -58,6 +66,10 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
+
+PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
+
+
 STATIC_ROOT = ''
 
 # URL prefix for static files.
@@ -65,9 +77,7 @@ STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
 # Additional locations of static files
-STATICFILES_DIRS = (
-    os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'static').replace('\\','/')),
-)
+STATICFILES_DIRS = ( os.path.join(PROJECT_PATH, 'static'), )
 
 # List of finder classes that know how to find static files in
 # various locations.
