@@ -23,7 +23,7 @@ def index(request):
     social_task_list = Task.objects.filter(user=request.user, category="SOC")
     physical_task_list = Task.objects.filter(user=request.user, category="PHY")
     personal_task_list = Task.objects.filter(user=request.user, category="PER")
-    return render_to_response('Listigain.html',{'educational_task_list': educational_task_list,
+    return render_to_response('listigain.html',{'educational_task_list': educational_task_list,
                                                 'social_task_list': social_task_list,
                                                 'physical_task_list': physical_task_list,
                                                 'personal_task_list': personal_task_list,},
@@ -86,7 +86,7 @@ def initialize_quad(request):
     """
     user_tasks = Task.objects.filter(user=request.user, completed=False).order_by('-priority','category')
     quad_tasks = list()
-    for i in range(0,4):
+    for i in range(0,5):
         empty = {
         'id': -1,
         'content': "empty",
@@ -101,7 +101,7 @@ def initialize_quad(request):
         quad_tasks[count]['content'] = task.content
         quad_tasks[count]['index'] = count
         count+=1
-        if count==4:
+        if count==5:
             break
 
 
@@ -124,7 +124,7 @@ def return_quad(request, task_id):
 
     user_tasks = Task.objects.filter(user=request.user, completed=False).order_by('-priority','category')
     quad_tasks = list()
-    for i in range(0,4):
+    for i in range(0,5):
         empty = {
             'id': -1,
             'content': "empty",
@@ -139,7 +139,7 @@ def return_quad(request, task_id):
         quad_tasks[count]['content'] = task.content
         quad_tasks[count]['index'] = count
         count+=1
-        if count==4:
+        if count==5:
             break
 
 

@@ -17,5 +17,5 @@ def index(request):
     If users are authenticated, direct them to the main page. Otherwise,
     take them to the login page.
     """
-    return render_to_response('Writigain.html',context_instance=RequestContext(request))
+    return render_to_response('writigain.html',context_instance=RequestContext(request))
 

@@ -30,7 +30,7 @@ var game = {
 
      constants */
     ROUNDS:10,
-    ANSWERS:4,
+    ANSWERS:5,
     TURNTIME:50,
 
     startGame:function () {
@@ -77,7 +77,7 @@ var game = {
         // check to see if the word is correct
 
         game.id = $(this).attr('id');
-        for (var i = 0; i < game.ANSWERS; i++) {
+        for (var i = 0; i < game.wl.length; i++) {
             if (game.id == 'a' + i) {
                 $('#game').hide();
                 $('#taskscreen').fadeIn('500');
@@ -98,7 +98,7 @@ var game = {
         }
         // check to see if the word is correct
 
-        for (var i = 0; i < game.ANSWERS; i++) {
+        for (var i = 0; i < game.wl.length; i++) {
             if (game.id == 'a' + i) {
                 $.ajax({
                     url:'/listigain/'+game.wl[i]['id']+'/return_quad',
@@ -133,7 +133,7 @@ var game = {
             $(this).removeAttr("style");
         });
         var wrong_answers = [];
-        for (var cnt = 0; cnt < game.ANSWERS; cnt++) {
+        for (var cnt = 0; cnt < game.wl.length; cnt++) {
             if (cnt != game.wd['s']) {
                 wrong_answers.push(cnt);
             }
@@ -173,6 +173,7 @@ var game = {
             $('#a1').unbind();
             $('#a2').unbind();
             $('#a3').unbind();
+            $('#a4').unbind();
             game_over.showscreen();
 
         } else {
@@ -180,7 +181,7 @@ var game = {
                 //$('.game-info').html('Turn ' + game.turn + ' / 10');
                 time = game.unix_time();
                 game.sec_left = game.TURNTIME;
-                for (var j = 0; j < game.ANSWERS; j++) {
+                for (var j = 0; j < game.wl.length; j++) {
                     $('div#a' + j + ' .answer').html('');
                 }
                 //$('.ct').html(game.sec_left);
@@ -213,8 +214,8 @@ var game = {
                     $(this).removeAttr("style");
                 });
 
-                for (var j = 0; j < game.ANSWERS; j++) {
-                    if (j == game.ANSWERS - 1) {
+                for (var j = 0; j < game.wl.length; j++) {
+                    if (j == game.wl.length - 1) {
                         if (game.wl[j]['id'] == -1) {
                             window.location.replace('finished_quad');
                         }
@@ -223,12 +224,28 @@ var game = {
                         break;
                     }
                 }
-                for (var j = 0; j < game.ANSWERS; j++) {
+                for (var j = 0; j < game.wl.length; j++) {
+
                     if (game.wl[j]['id'] == -1) {
                         continue;
                     }
+                    else if (j == 0){
+                        $('div#alt_title').html('');
+                        $('div#a' + j + ' .answer').html('<div class="span-24 center"> Pick your main task:</div> ' +
+                            '<div class="span-4">&nbsp;</div><a href="javascript:void(0)" ><div class="span-16 center" style=" background-color: #ff6347; height: 150px; display: table; ">' +
+                            '<div style="display: table-cell; vertical-align: middle; font: bold; font-size: 24pt;">' + game.wl[j]['content'] + '</div></div></a><div class="span-4">&nbsp;</div>' +
+                            '');
+                        continue;
+
+                    }
+                    else if(j==1) {
+                        $('div#alt_title').html('<div class="span-24 center">Or choose one of the following:</div>');
+                        $('div#a' + j + ' .answer').html('' +
+                            '<a href="javascript:void(0)" ><div class="span-8 center" style=" background-color: #add8e6; height: 100px; display: table; ">' +
+                            '<div style="display: table-cell; vertical-align: middle; font: bold; font-size: 16pt;">' + game.wl[j]['content'] + '</div></div></a>');
+                    }
                     else {
-                    $('div#a' + j + ' .answer').html('<a href="javascript:void(0)" ><div class="span-12 center" style=" background-color: grey; height: 100px; display: table; ">' +
+                    $('div#a' + j + ' .answer').html('<a href="javascript:void(0)" ><div class="span-8 center" style=" background-color: #add8e6; height: 100px; display: table; ">' +
                         '<div style="display: table-cell; vertical-align: middle; font: bold; font-size: 16pt;">' + game.wl[j]['content'] + '</div></div></a>');
                     }
                 }
