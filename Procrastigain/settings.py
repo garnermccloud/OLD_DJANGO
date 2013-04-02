@@ -1,8 +1,6 @@
 import os.path
 
 import socket
-
-
 # Django settings for Procrastigain project.
 
 
@@ -19,10 +17,12 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'db',                      # Or path to database file if using sqlite3.
+        'NAME': os.path.join(SITE_ROOT,'database.db'),                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -53,9 +53,11 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = False
 
+
+PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = PROJECT_PATH+'/static/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -67,7 +69,7 @@ MEDIA_URL = ''
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
 
-PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
+
 
 
 STATIC_ROOT = ''
@@ -77,7 +79,12 @@ STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
 # Additional locations of static files
-STATICFILES_DIRS = ( os.path.join(PROJECT_PATH, 'static'), )
+
+
+STATICFILES_DIRS = (
+    os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'static').replace('\\','/')),
+    )
+
 
 # List of finder classes that know how to find static files in
 # various locations.

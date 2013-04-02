@@ -167,6 +167,7 @@ pip-log.txt
 #############
 
 .idea/workspace.xml
+database.db
 
 #############
 ## binaries
