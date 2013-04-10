@@ -15,7 +15,7 @@ Main page of the Writigain.
 {% block content %}
     <section>
         <h2>Welcome, {{ user.username }}</h2>
-        <p>This is Listigain.</p>
+        <h3>Add a task</h3>
     </section>
     <div id="container" style="width:1000px">
     <form action="/listigain/add" method="post">{% csrf_token %}

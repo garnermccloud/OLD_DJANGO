@@ -39,6 +39,7 @@ var game = {
         this.turn = 1; // turn count
         this.sec_left = null; // number of seconds left for the countdown timer
         this.submitted = true;
+        this.initialized = false;
         this.id = null;
         // setup click handlers for answers
         $('.ab').each(function () {
@@ -81,9 +82,9 @@ var game = {
             if (game.id == 'a' + i) {
                 $('#game').hide();
                 $('#taskscreen').fadeIn('500');
-                $('#task_info').html('<div class="span-24" style="text-align: center; height: 60px; font-size: 36pt"><p> ' + game.wl[i]['content'] + '</p></div>');
-                $('#complete').html('<div class="span-9">&nbsp;</div> <a href="javascript:void(0)"> <div class="span-6 center" style=" background-color: grey; height: 50px; display: table; ">' +
-                    '<div style="display: table-cell; vertical-align: middle; font: bold; font-size: 16pt;">Click here when complete!</div></div></a>');
+                $('#task_info').html('<div class="span-24" style="text-align: center; font-size: 24pt; line-height: 24pt"><p> ' + game.wl[i]['content'] + '</p></div>');
+                $('#complete').html('<div class="span-9">&nbsp;</div> <a href="javascript:void(0)"> <div class="span-6 center button orange" style=" height: 100px; display: table; ">' +
+                    '<div style="display: table-cell; vertical-align: middle; font: bold; font-size: 16pt; line-height: 16pt">Click here when complete!</div></div></a>');
 
 
             }
@@ -217,11 +218,17 @@ var game = {
                 for (var j = 0; j < game.wl.length; j++) {
                     if (j == game.wl.length - 1) {
                         if (game.wl[j]['id'] == -1) {
-                            window.location.replace('finished_quad');
+                            if (game.initialized == false) {
+                                window.location.replace('no_tasks');
+                            } else {
+                                window.location.replace('finished_quad');
+                            }
+
                         }
                     }
                     if (game.wl[j]['id'] != -1) {
                         $('#qb').html('The Quad');
+                        game.initialized = true;
                         break;
                     }
                 }
@@ -233,22 +240,22 @@ var game = {
                     }
                     else if (j == 0){
                         $('div#alt_title').html('');
-                        $('div#a' + j + ' .answer').html('<div class="span-24 center"> Pick your main task:</div> ' +
-                            '<div class="span-4">&nbsp;</div><a href="javascript:void(0)" ><div class="span-16 center" style=" background-color: #ff6347; height: 150px; display: table; ">' +
-                            '<div style="display: table-cell; vertical-align: middle; font: bold; font-size: 24pt;">' + game.wl[j]['content'] + '</div></div></a><div class="span-4">&nbsp;</div>' +
+                        $('div#a' + j + ' .answer').html('<div class="span-24 center"> <h3>Pick your main task:</h3></div> ' +
+                            '<div class="span-4">&nbsp;</div><a href="javascript:void(0)" ><div class="span-16 center button red" style="  height: 200px; display: table; ">' +
+                            '<div style="display: table-cell; vertical-align: middle; font: bold; font-size: 16pt; line-height: 16pt"><p class="span-16 no_margin">' + game.wl[j]['content'] + '</p></div></div></a><div class="span-4">&nbsp;</div>' +
                             '');
                         continue;
 
                     }
                     else if(j==1) {
-                        $('div#alt_title').html('<div class="span-24 center">Or choose one of the following:</div>');
+                        $('div#alt_title').html('<div class="span-24 center"><h3>Or choose one of the following:</h3></div>');
                         $('div#a' + j + ' .answer').html('' +
-                            '<a href="javascript:void(0)" ><div class="span-8 center" style=" background-color: #add8e6; height: 100px; display: table; ">' +
-                            '<div style="display: table-cell; vertical-align: middle; font: bold; font-size: 16pt;">' + game.wl[j]['content'] + '</div></div></a>');
+                            '<a href="javascript:void(0)" ><div class="span-8 center button orange" style=" height: 150px; display: table; ">' +
+                            '<div style="display: table-cell; vertical-align: middle; font: bold; font-size: 14pt;line-height: 14pt"><p class="span-8 no_margin">' + game.wl[j]['content'] + '</p></div></div></a>');
                     }
                     else {
-                    $('div#a' + j + ' .answer').html('<a href="javascript:void(0)" ><div class="span-8 center" style=" background-color: #add8e6; height: 100px; display: table; ">' +
-                        '<div style="display: table-cell; vertical-align: middle; font: bold; font-size: 16pt;">' + game.wl[j]['content'] + '</div></div></a>');
+                    $('div#a' + j + ' .answer').html('<a href="javascript:void(0)" ><div class="span-8 center button orange" style=" height: 150px; display: table; ">' +
+                        '<div style="display: table-cell; vertical-align: middle; font: bold; font-size: 14pt;line-height: 14pt"><p class="span-8 no_margin">' + game.wl[j]['content'] + '</p></div></div></a>');
                     }
                 }
                 $('.game-questions').fadeIn('slow', function () {
