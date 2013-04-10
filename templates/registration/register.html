@@ -2,11 +2,24 @@
 
 
 {% block content %}
-    <h1>Create an account</h1>
+    <div class="span-24 center" style="font-size: 24pt; margin: 20px">
+        Procrastinate to gain.
+    </div>
+    <div class="span-24 center" style="font-size: 24pt; margin: 20px">
+        One radical concept made into one simple word.
+    </div>
+    <div class="span-24 center" style="font-size: 24pt;margin-top: 80px; margin-bottom: 40px">
+        Create an account to MAXIMIZE your productivity now!
+    </div>
+    <div class="span-24 center">
+        <form action="" method="post">
+            {% csrf_token %}
+            <table style="margin-left: auto; margin-right: auto;">
+            {{ form.as_table }}
+            </table>
 
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Create the account">
-    </form>
+            <input type="submit" value="Create your account">
+
+        </form>
+    </div>
 {% endblock %}

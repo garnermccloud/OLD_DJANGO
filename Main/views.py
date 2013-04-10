@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.core.context_processors import csrf
+from Main.forms import UserCreateForm
 
 def main_page(request):
     return render_to_response('main.html',context_instance=RequestContext(request))
@@ -31,12 +32,12 @@ def logout_page(request):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserCreateForm(request.POST)
         if form.is_valid():
             new_user = form.save()
             return HttpResponseRedirect("/register_success")
     else:
-        form = UserCreationForm()
+        form = UserCreateForm()
     con = {'form': form}
     con.update(csrf(request))
 

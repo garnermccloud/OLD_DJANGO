@@ -208,7 +208,7 @@ var game = {
                         }
                     }
                 }, 1000);
-                $('#qb').html('The Quad');
+
                 // reset the answer board
                 $('.ab').each(function () {
                     $(this).removeAttr("style");
@@ -221,9 +221,11 @@ var game = {
                         }
                     }
                     if (game.wl[j]['id'] != -1) {
+                        $('#qb').html('The Quad');
                         break;
                     }
                 }
+
                 for (var j = 0; j < game.wl.length; j++) {
 
                     if (game.wl[j]['id'] == -1) {

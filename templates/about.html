@@ -1,0 +1,23 @@
+
+
+{% extends user.is_authenticated|yesno:"index.html,indexNL.html" %}
+
+
+{% comment %}
+
+Login page to authenticate users.
+
+{% endcomment %}
+
+
+{% block content %}
+    <div class="span-24 center" style="margin-bottom: 40px"><h1>About</h1></div>
+    <div class="span-4">&nbsp;</div>
+    <div class="span-16 " style="font-size: 14pt;  line-height: 30px">
+        <p style="">Your time is valuable; we help you use your time wisely.  We are an app that helps you squeeze every ounce of value out of your time, without feeling bogged down or pressured.  We are an app that helps you complete the things in life, whether it is something that needs to get done ASAP or something you’ve been yearning to do for a while and haven’t gotten around to yet, we facilitate the actual completion of your goals.
+        </p>
+    <p>
+        Our site makes it undeniably easy to finish the tasks you need to get done.  With easy to use interfaces designed for you to simply get things done, you will indeed GET THINGS DONE.  Here is why we work:   Everyone says that making a list of the things you need to do is the way to go. So, you make a list.  And it is longgggggg.  So long in fact that you need time away from your list because it is causing you stress.  Your dwells on the most stressful of your tasks, that 10 page paper, searching for a job.  You will do almost anything else to get away from that stress.  So you open up a facebook in a tab, and then realize that you have facebook in four other tabs! You start doubting your ability to get that task done.   Our philosophy is simple:  When you are in that stressful state  and unable to do that daunting task, nearly anything else that you do will feel like a break, as long as you don’t have to do that THING!   Wouldn’t working out be better than writing that paper?  Hell, wouldn’t you rather do laundry than trying to start that Calculus problem set that you didn’t even understand in class???  Let that stress make your other activities feel like a break.  Go do your laundry, get your sweat on at the gym.  You will feel better about yourself after completing something productive.  Soon, you’ve finished half of those things on your task list, just by avoiding that one stressful task.  You can feel confident, you can do this, and you tackle that main tasks head on! You are gaining from procrastinating; nothing feels better than to procrastigain!
+    </p>
+    </div>
+{% endblock %}

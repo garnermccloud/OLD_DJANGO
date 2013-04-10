@@ -1,0 +1,20 @@
+
+
+{% extends user.is_authenticated|yesno:"index.html,indexNL.html" %}
+
+
+{% comment %}
+
+Login page to authenticate users.
+
+{% endcomment %}
+
+
+{% block content %}
+    <div class="span-24 center" style="margin-bottom: 40px"><h1>Contact Us</h1></div>
+    <div class="span-4">&nbsp;</div>
+    <div class="span-16 " style="font-size: 14pt;  line-height: 30px">
+        <p style="">If you have any questions, concerns, or suggestions, please contact me at <a href="mailto:gmccloud@procrastigain.com">gmccloud@procrastigain.com</a>       </p>
+
+    </div>
+{% endblock %}

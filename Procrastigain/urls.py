@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^$', 'Main.views.main_page'),
+    (r'^$', 'Main.views.index'),
 
                        # Login / logout.
     (r'^accounts/login/$', login),
@@ -26,6 +26,9 @@ urlpatterns = patterns('',
     url(r'^listigain/(?P<task_id>\d+)/return_quad$', 'Listigain.views.return_quad', name='return_quad'),
     url(r'^listigain/quad$', TemplateView.as_view(template_name="quad.html")),
     url(r'^listigain/finished_quad$', TemplateView.as_view(template_name="finished quad.html")),
+    url(r'^about/$', TemplateView.as_view(template_name="about.html")),
+    url(r'^team/$', TemplateView.as_view(template_name="team.html")),
+    url(r'^contact/$', TemplateView.as_view(template_name="contact.html")),
 
 
     # url(r'^Procrastigain/', include('Procrastigain.foo.urls')),

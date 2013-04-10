@@ -7,18 +7,23 @@ Login page to authenticate users.
 
 
 {% block content %}
-    <header>
-        <h2>Login Page</h2>
-    </header>
-
-    <section>
+    <div class="span-24 center" style="font-size: 24pt; margin: 20px">
+        Procrastinate to gain.
+    </div>
+    <div class="span-24 center" style="font-size: 24pt; margin: 20px">
+        One radical concept made into one simple word.
+    </div>
+    <div class="span-24 center" style="font-size: 24pt;margin-top: 80px; margin-bottom: 40px">
+        Login to MAXIMIZE your productivity now!
+    </div>
+    <div class="span-24 center">
         {% if form.errors %}
             <p>Your username and password didn't match. Please try again.</p>
         {% endif %}
 
         <form method="post" action=''>
             {% csrf_token %}
-            <table>
+            <table style="margin-left: auto; margin-right: auto;">
                 <tr>
                     <td>{{ form.username.label_tag }}</td>
                     <td>{{ form.username }}</td>
@@ -33,5 +38,5 @@ Login page to authenticate users.
             <input type="hidden" name="next" value="{{ next }}" />
         </form>
         New user? Click <a href="/register">here</a> to register an account.
-    </section>
+    </div>
 {% endblock %}

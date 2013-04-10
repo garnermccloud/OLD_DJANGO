@@ -1,0 +1,21 @@
+
+
+{% extends user.is_authenticated|yesno:"index.html,indexNL.html" %}
+
+
+{% comment %}
+
+Login page to authenticate users.
+
+{% endcomment %}
+
+
+{% block content %}
+    <div class="span-24 center" style="margin-bottom: 40px"><h1>Our Team</h1></div>
+    <div class="span-4">&nbsp;</div>
+    <div class="span-16 " style="font-size: 14pt;  line-height: 30px">
+        <p style="">We are a team of three recent grads based out of New York City.
+            Being plagued with procrastination most of our lives, we want to help people channel their energy into productive tasks.  We are pushing the idea of ProcrastiGAINing rather than procrastinating.
+        </p>
+    </div>
+{% endblock %}
