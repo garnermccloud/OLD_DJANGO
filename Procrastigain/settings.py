@@ -1,13 +1,10 @@
 import os.path
-
 import socket
+
 # Django settings for Procrastigain project.
 
 
-if socket.gethostname() == 'Garner-PC':
-    DEBUG = TEMPLATE_DEBUG = True
-else:
-    DEBUG = TEMPLATE_DEBUG = False
+DEBUG = TEMPLATE_DEBUG = True
 
 ADMINS = (
      ('Garner McCloud', 'garnermccloud@gmail.com'),
@@ -79,7 +76,6 @@ STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
 # Additional locations of static files
-
 
 STATICFILES_DIRS = (
     os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'static').replace('\\','/')),
