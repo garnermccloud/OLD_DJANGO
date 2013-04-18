@@ -46,7 +46,7 @@ Main page of the Writigain.
            {% if educational_task_list %}
                    {% for task in educational_task_list %}
                        <form action="/listigain/{{ task.id }}/edit" > {% csrf_token %}
-                       <p>{{ task.content }}:  {{ task.priority }}
+                       <p>{{ task.content }} <br /> Priority: {{ task.priority }} <br /> Time Spent: {{ task.time }} seconds<br />
                             <input type="submit" value="Edit" />
                        </p>
                        </form>
@@ -61,7 +61,7 @@ Main page of the Writigain.
             {% if social_task_list %}
                 {% for task in social_task_list %}
                     <form action="/listigain/{{ task.id }}/edit" > {% csrf_token %}
-                        <p>{{ task.content }}:  {{ task.priority }}
+                        <p>{{ task.content }}  <br /> Priority: {{ task.priority }} <br /> Time Spent: {{ task.time }} seconds<br />
                             <input type="submit" value="Edit" />
                         </p>
                     </form>
@@ -76,7 +76,7 @@ Main page of the Writigain.
             {% if physical_task_list %}
                 {% for task in physical_task_list %}
                     <form action="/listigain/{{ task.id }}/edit" > {% csrf_token %}
-                        <p>{{ task.content }}:  {{ task.priority }}
+                        <p>{{ task.content }} <br /> Priority: {{ task.priority }} <br /> Time Spent: {{ task.time }} seconds<br />
                             <input type="submit" value="Edit" />
                         </p>
                     </form>
@@ -91,7 +91,7 @@ Main page of the Writigain.
             {% if personal_task_list %}
                 {% for task in personal_task_list %}
                     <form action="/listigain/{{ task.id }}/edit" > {% csrf_token %}
-                        <p>{{ task.content }}:  {{ task.priority }}
+                        <p>{{ task.content }} <br /> Priority:  {{ task.priority }} <br /> Time Spent: {{ task.time }} seconds<br />
                             <input type="submit" value="Edit" />
                         </p>
                     </form>

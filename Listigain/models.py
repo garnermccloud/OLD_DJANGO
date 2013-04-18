@@ -27,10 +27,11 @@ class Task(models.Model):
     priority = models.IntegerField(choices=PRIORITY_TYPES)
     completed = models.BooleanField()
     skip = models.BooleanField()
+    time = models.IntegerField(default=0,null=False)
 
 
 class TaskForm(ModelForm):
     class Meta:
         model = Task
-        exclude = ('skip')
+        exclude = ('skip','time')
 

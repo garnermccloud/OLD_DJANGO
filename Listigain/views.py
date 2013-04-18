@@ -111,14 +111,55 @@ def initialize_quad(request):
     return HttpResponse(simplejson.dumps(quad_tasks), mimetype='application/json')
 
 @login_required
-def return_quad(request, task_id):
+def completed(request, task_id, time_spent):
     """
     make user list with user's tasks sorted by priority
     """
     #returned task is now completed so mark it completed in the database
     completed_task = get_object_or_404(Task, pk=task_id)
     if completed_task.user == request.user:
+        new_time = int(time_spent) + completed_task.time
         Task.objects.filter(id=completed_task.pk).update(completed=True)
+        Task.objects.filter(id=completed_task.pk).update(time=new_time)
+
+
+
+    user_tasks = Task.objects.filter(user=request.user, completed=False).order_by('-priority','category')
+    quad_tasks = list()
+    for i in range(0,5):
+        empty = {
+            'id': -1,
+            'content': "empty",
+            'index': i
+        }
+        quad_tasks.append(empty)
+
+    #make user list with user's tasks sorted by priority
+    count = 0
+    for task in user_tasks:
+        quad_tasks[count]['id'] = task.pk
+        quad_tasks[count]['content'] = task.content
+        quad_tasks[count]['index'] = count
+        count+=1
+        if count==5:
+            break
+
+
+
+    # return the id, content, and index of each tasks in the quad in a JSON response
+    return HttpResponse(simplejson.dumps(quad_tasks), mimetype='application/json')
+
+
+@login_required
+def time_up(request, task_id, time_spent):
+    """
+    make user list with user's tasks sorted by priority
+    """
+    #returned task is now completed so mark it completed in the database
+    completed_task = get_object_or_404(Task, pk=task_id)
+    if completed_task.user == request.user:
+        new_time = int(time_spent) + completed_task.time
+        Task.objects.filter(id=completed_task.pk).update(time=new_time)
 
 
 
