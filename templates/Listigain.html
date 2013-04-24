@@ -13,10 +13,12 @@ Main page of the Writigain.
 
 
 {% block content %}
-    <section >
-        <div style="color: black;text-decoration: none; ; font-size: 36pt; font-weight: 700; height: 40px">Listigain</div>
+    <div class="span-24 center">
+        <div style="color: black;text-decoration: none; ; font-size: 36pt; font-weight: 700; height: 40px; margin-bottom: 40px">Listigain</div>
+    </div>
+    <div class="span-24">
         Welcome {{ user.username }}!
-    </section>
+    </div>
     <div class="container">
         <div class="span-24 last" align="center" style="padding-bottom: 20px">
             <div class="span-9">&nbsp;</div>
@@ -46,10 +48,11 @@ Main page of the Writigain.
            {% if educational_task_list %}
                    {% for task in educational_task_list %}
                        <form action="/listigain/{{ task.id }}/edit" > {% csrf_token %}
-                       <p>{{ task.content }} <br /> Priority: {{ task.priority }} <br /> Time Spent: {{ task.time }} seconds<br />
+                           <p><b>Task: </b>{{ task.content }} <br /> <b>Priority:</b> {{  task.get_priority_display }} <br /> <b>Difficulty:</b> {{ task.get_difficulty_display }} <br /> <b>Time Spent:</b> {% widthratio  task.time 60 1 %} minute(s)<br />
                             <input type="submit" value="Edit" />
                        </p>
                        </form>
+                       <br />
                    {% endfor %}
            {% else %}
                <p>No tasks are available.</p>
@@ -61,10 +64,11 @@ Main page of the Writigain.
             {% if social_task_list %}
                 {% for task in social_task_list %}
                     <form action="/listigain/{{ task.id }}/edit" > {% csrf_token %}
-                        <p>{{ task.content }}  <br /> Priority: {{ task.priority }} <br /> Time Spent: {{ task.time }} seconds<br />
+                        <p><b>Task: </b>{{ task.content }} <br /> <b>Priority:</b> {{  task.get_priority_display }} <br /> <b>Difficulty:</b> {{ task.get_difficulty_display }} <br /> <b>Time Spent:</b> {% widthratio  task.time 60 1 %} minute(s)<br />
                             <input type="submit" value="Edit" />
                         </p>
                     </form>
+                    <br />
                 {% endfor %}
             {% else %}
                 <p>No tasks are available.</p>
@@ -76,10 +80,11 @@ Main page of the Writigain.
             {% if physical_task_list %}
                 {% for task in physical_task_list %}
                     <form action="/listigain/{{ task.id }}/edit" > {% csrf_token %}
-                        <p>{{ task.content }} <br /> Priority: {{ task.priority }} <br /> Time Spent: {{ task.time }} seconds<br />
+                        <p><b>Task: </b>{{ task.content }} <br /> <b>Priority:</b> {{  task.get_priority_display }} <br /> <b>Difficulty:</b> {{ task.get_difficulty_display }} <br /> <b>Time Spent:</b> {% widthratio  task.time 60 1 %} minute(s)<br />
                             <input type="submit" value="Edit" />
                         </p>
                     </form>
+                    <br />
                 {% endfor %}
             {% else %}
                 <p>No tasks are available.</p>
@@ -91,10 +96,11 @@ Main page of the Writigain.
             {% if personal_task_list %}
                 {% for task in personal_task_list %}
                     <form action="/listigain/{{ task.id }}/edit" > {% csrf_token %}
-                        <p>{{ task.content }} <br /> Priority:  {{ task.priority }} <br /> Time Spent: {{ task.time }} seconds<br />
+                        <p><b>Task: </b>{{ task.content }} <br /> <b>Priority:</b> {{  task.get_priority_display }} <br /> <b>Difficulty:</b> {{ task.get_difficulty_display }} <br /> <b>Time Spent:</b> {% widthratio  task.time 60 1 %} minute(s)<br />
                             <input type="submit" value="Edit" />
                         </p>
                     </form>
+                    <br />
                 {% endfor %}
             {% else %}
                 <p>No tasks are available.</p>

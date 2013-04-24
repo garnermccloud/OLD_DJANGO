@@ -7,6 +7,19 @@
 Main page of the Writigain.
 
 {% endcomment %}
+{% block title %}
+    | Writigain
+{% endblock %}
+
+
+{% block content %}
+    <section>
+        <h2>Welcome, {{ user.username }}</h2>
+        <p>The Writigain App is coming soon! Check out the blog for updates!</p>
+    </section>
+
+{% endblock %}
+{% comment %}
 
 {% block title %}
    | Writigain
@@ -36,3 +49,5 @@ Main page of the Writigain.
     <p id="txt">0</p>
 </div>
 {% endblock %}
+
+{% endcomment %}

@@ -16,6 +16,10 @@ def register_success(request):
     return  render_to_response('register_success.html',context_instance=RequestContext(request))
 
 @login_required
+def my_account(request):
+    return  render_to_response('my_account.html', context_instance=RequestContext(request))
+
+@login_required
 def index(request):
     """
     If users are authenticated, direct them to the main page. Otherwise,
