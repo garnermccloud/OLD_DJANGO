@@ -1,4 +1,6 @@
 
+window.started_from_listigain;
+
 var quad = {
     /*
      For testing only
@@ -89,7 +91,7 @@ var quad = {
                 $('#complete').html('<div class="span-9">&nbsp;</div> <a href="javascript:void(0)"> <div class="span-6 center button orange" style=" height: 100px; display: table; ">' +
                     '<div style="display: table-cell; vertical-align: middle; font: bold; font-size: 16pt; line-height: 16pt">Click here when complete!</div></div></a>');
 
-                t=setTimeout(function(){startTime()},500);
+                quad.t=setTimeout(function(){startTime()},50);
                 function startTime()
                 {
                      var minutes = Math.floor(quad.sec_left/60);
@@ -98,10 +100,9 @@ var quad = {
                     quad.sec_left--;
                     quad.sec_left+=minutes*60;
                     if (quad.sec_left >=0) {
-                    t=setTimeout(function(){startTime()},1000);
+                    quad.t=setTimeout(function(){startTime()},1000);
                     }
                     else {
-                        clearTimeout(t);
                         quad.sec_left = 0;
                         quad.time_up();
                     }
@@ -131,8 +132,9 @@ var quad = {
         }
     },
 
+
     completed:function () {
-        window.clearInterval()
+        window.clearTimeout(quad.t);
         if (quad.submitted) {
             return false;
         } else {
@@ -169,7 +171,7 @@ var quad = {
         }
     },
     time_up:function () {
-        window.clearInterval()
+        window.clearTimeout(quad.t);
         if (quad.submitted) {
             return false;
         } else {
@@ -365,12 +367,20 @@ var quad = {
             console = { log:function (s) {
             } };
         }
-        $('.new').click(function () {
+        if (window.started_from_listigain == true) {
+            window.started_from_listigain = false;
             $('.splash').fadeOut('1000', function () {
                 quad.startQuad();
             });
+        }
 
-        });
+            $('.new').click(function () {
+                $('.splash').fadeOut('1000', function () {
+                    quad.startQuad();
+                });
+
+            });
+
         // on the main page load we show the splash screen
         // and register start and highscores for clicks
 

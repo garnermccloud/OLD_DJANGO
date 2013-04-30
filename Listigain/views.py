@@ -19,11 +19,27 @@ def index(request):
     If users are authenticated, direct them to the main page. Otherwise,
     take them to the login page.
     """
-    educational_task_list = Task.objects.filter(user=request.user, category="EDU")
-    social_task_list = Task.objects.filter(user=request.user, category="SOC")
-    physical_task_list = Task.objects.filter(user=request.user, category="PHY")
-    personal_task_list = Task.objects.filter(user=request.user, category="PER")
+    educational_task_list = Task.objects.filter(user=request.user,completed=False, category="EDU")
+    social_task_list = Task.objects.filter(user=request.user,completed=False, category="SOC")
+    physical_task_list = Task.objects.filter(user=request.user,completed=False, category="PHY")
+    personal_task_list = Task.objects.filter(user=request.user,completed=False, category="PER")
     return render_to_response('listigain.html',{'educational_task_list': educational_task_list,
+                                                'social_task_list': social_task_list,
+                                                'physical_task_list': physical_task_list,
+                                                'personal_task_list': personal_task_list,},
+        context_instance=RequestContext(request))
+
+
+def index_completed(request):
+    """
+    If users are authenticated, direct them to the main page. Otherwise,
+    take them to the login page.
+    """
+    educational_task_list = Task.objects.filter(user=request.user,completed=True, category="EDU")
+    social_task_list = Task.objects.filter(user=request.user,completed=True, category="SOC")
+    physical_task_list = Task.objects.filter(user=request.user,completed=True, category="PHY")
+    personal_task_list = Task.objects.filter(user=request.user,completed=True, category="PER")
+    return render_to_response('listigain_completed.html',{'educational_task_list': educational_task_list,
                                                 'social_task_list': social_task_list,
                                                 'physical_task_list': physical_task_list,
                                                 'personal_task_list': personal_task_list,},
@@ -151,6 +167,23 @@ def completed(request, task_id, time_spent):
 
 
 @login_required
+def completed_from_listigain(request, task_id, time_spent):
+    """
+    make user list with user's tasks sorted by priority
+    """
+    #returned task is now completed so mark it completed in the database
+    completed_task = get_object_or_404(Task, pk=task_id)
+    if completed_task.user == request.user:
+        new_time = int(time_spent) + completed_task.time
+        Task.objects.filter(id=completed_task.pk).update(completed=True)
+        Task.objects.filter(id=completed_task.pk).update(time=new_time)
+        return HttpResponseRedirect('/listigain/quad/complete')
+    else:
+        return HttpResponseRedirect('/listigain/')
+
+
+
+@login_required
 def time_up(request, task_id, time_spent):
     """
     make user list with user's tasks sorted by priority
@@ -189,3 +222,39 @@ def time_up(request, task_id, time_spent):
     return HttpResponse(simplejson.dumps(quad_tasks), mimetype='application/json')
 
 
+@login_required
+def time_up_from_listigain(request, task_id, time_spent):
+    """
+    make user list with user's tasks sorted by priority
+    """
+    #returned task is now completed so mark it completed in the database
+    completed_task = get_object_or_404(Task, pk=task_id)
+    if completed_task.user == request.user:
+        new_time = int(time_spent) + completed_task.time
+        Task.objects.filter(id=completed_task.pk).update(time=new_time)
+        return HttpResponseRedirect('/listigain/quad/complete')
+    else:
+        return HttpResponseRedirect('/listigain/')
+
+
+
+
+
+
+@login_required
+def quad_from_listigain(request, task_id):
+    """
+    If users are authenticated, direct them to the main page. Otherwise,
+    take them to the login page.
+    """
+
+    requested_task = get_object_or_404(Task, pk=task_id)
+    if requested_task.user == request.user:
+            return render_to_response('quad_from_listigain.html',{'requested_task': requested_task,},
+                context_instance=RequestContext(request))
+    else:
+        return HttpResponseRedirect('/listigain/')
+
+@login_required
+def quad_redirect(request):
+    return HttpResponseRedirect('/listigain/quad')

@@ -42,11 +42,12 @@ Main page of the Writigain.
                 </div>
             </a>
             <div class="span-24" style="height: 10px">&nbsp;</div>
+
             <div class="span-9">&nbsp;</div>
-            <a href="/listigain/completed">
+            <a href="/listigain/">
                 <div class="span-6 center button red" style=" display: table;">
                     <div style="display: table-cell; vertical-align: middle; font: bolder; font-size: 12pt; height: 30px">
-                            Go to your already completed tasks
+                        Go back to your uncompleted tasks
                     </div>
                 </div>
             </a>
@@ -57,8 +58,8 @@ Main page of the Writigain.
            {% if educational_task_list %}
                    {% for task in educational_task_list %}
 
-                       <a href="/listigain/quad/{{ task.id }}/">
-                           <div class="span-6 button orange" style="height: 150px; display: table;">
+
+                           <div class="span-6 orangeother buttonother" style="height: 150px; display: table;">
                                <div class="span-6 last" style="height: 100px">
                                    <div  style="display: table-cell; vertical-align: middle; height: 100px">
 
@@ -95,7 +96,7 @@ Main page of the Writigain.
                                    </div>
                                </div>
                            </div>
-                       </a>
+
                        <form action="/listigain/{{ task.id }}/edit" > {% csrf_token %}
                            <input type="submit"  value="Edit" />
                        </form>
@@ -111,47 +112,45 @@ Main page of the Writigain.
             <br>
             {% if social_task_list %}
                 {% for task in social_task_list %}
-                    <a href="/listigain/quad/{{ task.id }}/">
-                        <div class="span-6 button orange" style="height: 150px; display: table;">
-                            <div class="span-6 last" style="height: 100px">
-                                <div  style="display: table-cell; vertical-align: middle; height: 100px">
+                    <div class="span-6 orangeother buttonother" style="height: 150px; display: table;">
+                        <div class="span-6 last" style="height: 100px">
+                            <div  style="display: table-cell; vertical-align: middle; height: 100px">
 
-                                    <p class="span-6 no_margin" style="font-size: 14pt; line-height: 16pt; color: #4e4e4e; font-weight: 700;">
-                                        {{ task.content }}
-                                    </p>
-                                </div>
+                                <p class="span-6 no_margin" style="font-size: 14pt; line-height: 16pt; color: #4e4e4e; font-weight: 700;">
+                                    {{ task.content }}
+                                </p>
                             </div>
-                            <div class="span-6 last" style="height: 50px">
-                                <div style="display: table-cell; vertical-align: bottom; height: 50px">
-                                    <div class="span-3 center" style="">
-                                        <div style="font-size: 7pt; ">
-                                            Priority
-                                        </div>
-                                        <div style="font-size: 14pt">
-                                            {{ task.priority }}
-                                        </div>
-                                        <div style="font-size: 7pt">
-                                            {{ task.get_priority_display }}
-                                        </div>
+                        </div>
+                        <div class="span-6 last" style="height: 50px">
+                            <div style="display: table-cell; vertical-align: bottom; height: 50px">
+                                <div class="span-3 center" style="">
+                                    <div style="font-size: 7pt; ">
+                                        Priority
                                     </div>
+                                    <div style="font-size: 14pt">
+                                        {{ task.priority }}
+                                    </div>
+                                    <div style="font-size: 7pt">
+                                        {{ task.get_priority_display }}
+                                    </div>
+                                </div>
 
-                                    <div class="span-3 last">
-                                        <div style="font-size: 7pt">
-                                            Difficulty
-                                        </div>
-                                        <div style="font-size: 14pt">
-                                            {{ task.difficulty }}
-                                        </div>
-                                        <div style="font-size: 7pt">
-                                            {{ task.get_difficulty_display }}
-                                        </div>
+                                <div class="span-3 last">
+                                    <div style="font-size: 7pt">
+                                        Difficulty
+                                    </div>
+                                    <div style="font-size: 14pt">
+                                        {{ task.difficulty }}
+                                    </div>
+                                    <div style="font-size: 7pt">
+                                        {{ task.get_difficulty_display }}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
                     <form action="/listigain/{{ task.id }}/edit" > {% csrf_token %}
-                        <input type="submit"  value="Edit" />
+                        <input type="submit" value="Edit" />
                     </form>
 
                     <br />
@@ -165,47 +164,45 @@ Main page of the Writigain.
             <br>
             {% if physical_task_list %}
                 {% for task in physical_task_list %}
-                    <a href="/listigain/quad/{{ task.id }}/">
-                        <div class="span-6 button orange" style="height: 150px; display: table;">
-                            <div class="span-6 last" style="height: 100px">
-                                <div  style="display: table-cell; vertical-align: middle; height: 100px">
+                    <div class="span-6 orangeother buttonother" style="height: 150px; display: table;">
+                        <div class="span-6 last" style="height: 100px">
+                            <div  style="display: table-cell; vertical-align: middle; height: 100px">
 
-                                    <p class="span-6 no_margin" style="font-size: 14pt; line-height: 16pt; color: #4e4e4e; font-weight: 700;">
-                                        {{ task.content }}
-                                    </p>
-                                </div>
+                                <p class="span-6 no_margin" style="font-size: 14pt; line-height: 16pt; color: #4e4e4e; font-weight: 700;">
+                                    {{ task.content }}
+                                </p>
                             </div>
-                            <div class="span-6 last" style="height: 50px">
-                                <div style="display: table-cell; vertical-align: bottom; height: 50px">
-                                    <div class="span-3 center" style="">
-                                        <div style="font-size: 7pt; ">
-                                            Priority
-                                        </div>
-                                        <div style="font-size: 14pt">
-                                            {{ task.priority }}
-                                        </div>
-                                        <div style="font-size: 7pt">
-                                            {{ task.get_priority_display }}
-                                        </div>
+                        </div>
+                        <div class="span-6 last" style="height: 50px">
+                            <div style="display: table-cell; vertical-align: bottom; height: 50px">
+                                <div class="span-3 center" style="">
+                                    <div style="font-size: 7pt; ">
+                                        Priority
                                     </div>
+                                    <div style="font-size: 14pt">
+                                        {{ task.priority }}
+                                    </div>
+                                    <div style="font-size: 7pt">
+                                        {{ task.get_priority_display }}
+                                    </div>
+                                </div>
 
-                                    <div class="span-3 last">
-                                        <div style="font-size: 7pt">
-                                            Difficulty
-                                        </div>
-                                        <div style="font-size: 14pt">
-                                            {{ task.difficulty }}
-                                        </div>
-                                        <div style="font-size: 7pt">
-                                            {{ task.get_difficulty_display }}
-                                        </div>
+                                <div class="span-3 last">
+                                    <div style="font-size: 7pt">
+                                        Difficulty
+                                    </div>
+                                    <div style="font-size: 14pt">
+                                        {{ task.difficulty }}
+                                    </div>
+                                    <div style="font-size: 7pt">
+                                        {{ task.get_difficulty_display }}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
                     <form action="/listigain/{{ task.id }}/edit" > {% csrf_token %}
-                        <input type="submit"  value="Edit" />
+                        <input type="submit" value="Edit" />
                     </form>
 
                     <br />
@@ -219,47 +216,45 @@ Main page of the Writigain.
             <br>
             {% if personal_task_list %}
                 {% for task in personal_task_list %}
-                    <a href="/listigain/quad/{{ task.id }}/">
-                        <div class="span-6 button orange" style="height: 150px; display: table;">
-                            <div class="span-6 last" style="height: 100px">
-                                <div  style="display: table-cell; vertical-align: middle; height: 100px">
+                    <div class="span-6 orangeother buttonother" style="height: 150px; display: table;">
+                        <div class="span-6 last" style="height: 100px">
+                            <div  style="display: table-cell; vertical-align: middle; height: 100px">
 
-                                    <p class="span-6 no_margin" style="font-size: 14pt; line-height: 16pt; color: #4e4e4e; font-weight: 700;">
-                                        {{ task.content }}
-                                    </p>
-                                </div>
+                                <p class="span-6 no_margin" style="font-size: 14pt; line-height: 16pt; color: #4e4e4e; font-weight: 700;">
+                                    {{ task.content }}
+                                </p>
                             </div>
-                            <div class="span-6 last" style="height: 50px">
-                                <div style="display: table-cell; vertical-align: bottom; height: 50px">
-                                    <div class="span-3 center" style="">
-                                        <div style="font-size: 7pt; ">
-                                            Priority
-                                        </div>
-                                        <div style="font-size: 14pt">
-                                            {{ task.priority }}
-                                        </div>
-                                        <div style="font-size: 7pt">
-                                            {{ task.get_priority_display }}
-                                        </div>
+                        </div>
+                        <div class="span-6 last" style="height: 50px">
+                            <div style="display: table-cell; vertical-align: bottom; height: 50px">
+                                <div class="span-3 center" style="">
+                                    <div style="font-size: 7pt; ">
+                                        Priority
                                     </div>
+                                    <div style="font-size: 14pt">
+                                        {{ task.priority }}
+                                    </div>
+                                    <div style="font-size: 7pt">
+                                        {{ task.get_priority_display }}
+                                    </div>
+                                </div>
 
-                                    <div class="span-3 last">
-                                        <div style="font-size: 7pt">
-                                            Difficulty
-                                        </div>
-                                        <div style="font-size: 14pt">
-                                            {{ task.difficulty }}
-                                        </div>
-                                        <div style="font-size: 7pt">
-                                            {{ task.get_difficulty_display }}
-                                        </div>
+                                <div class="span-3 last">
+                                    <div style="font-size: 7pt">
+                                        Difficulty
+                                    </div>
+                                    <div style="font-size: 14pt">
+                                        {{ task.difficulty }}
+                                    </div>
+                                    <div style="font-size: 7pt">
+                                        {{ task.get_difficulty_display }}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
                     <form action="/listigain/{{ task.id }}/edit" > {% csrf_token %}
-                        <input type="submit"  value="Edit" />
+                        <input type="submit" value="Edit" />
                     </form>
 
                     <br />
