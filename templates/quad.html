@@ -1,50 +1,55 @@
 {% extends 'index.html' %}
 
 {% block content %}
-<div class="splash ">
-    <div class="spash-header">
+    <div id="sound"></div>
+    <div class="splash ">
+        <div class="spash-header">
+        </div>
+        <div class="spash-buttons">
+        </div>
     </div>
-    <div class="spash-buttons">
-        <div class="new">
-            <div class="span-24 last center" >
-                <div class="span-8" >&nbsp;</div>
-                <a  href="javascript:void(0)">
-                    <div class="span-8 center button red" style=" background-color: grey; height: 100px; display: table; ">
-                        <div style="display: table-cell; vertical-align: middle; font: bold; font-size: 16pt;">Start Quad</div>
-                    </div>
-                </a>
-                <div class="span-8" style="background-color: green;"></div>
+    <div class="gameover"></div>
+    <div id="taskscreen">
+        <div class="span-24" id="task_info" ></div>
+        <div class="span-24" id="complete" ></div>
+    </div>
+
+    <div class="span-24" id="break_screen" ></div>
+
+    <div id="game" class="span-24" style="text-align: center">
+        <div class="game-header">
+        </div>
+        <div class="game-info">
+        </div>
+        <div class="game-questions">
+            <div id="qb" class="span-24 last" style="text-align: center; font: bold; font-size: 36pt; height: 100px">
+            </div>
+            <div class="span-24 last"><div id="a0" class="ab"><div class="abox"> <div class="answer"></div></div></div></div>
+            <div class="span-24 last" style="height: 50px"></div>
+            <div class="span-24 center" id="alt_title"></div>
+            <div class="span-24">
+                <div class="span-4">&nbsp;</div>
+                <div class="span-8"><div id="a1" class="ab"><div class="abox"> <div class="answer"></div></div></div></div>
+                <div class="span-8 last"><div id="a2" class="ab"><div class="abox"><div class="answer"></div></div></div></div>
+            </div>
+            <div class="span-24 last" style="height: 20px"></div>
+            <div class="span-24">
+                <div class="span-4">&nbsp;</div>
+                <div class="span-8"><div id="a3" class="ab"><div class="abox"><div class="answer"></div></div></div></div>
+                <div class="span-8 last"><div id="a4" class="ab"><div class="abox"><div class="answer"></div></div></div></div>
             </div>
         </div>
     </div>
-</div>
-<div class="gameover"></div>
-<div id="taskscreen">
-    <div class="span-24" id="task_info" ></div>
-    <div class="span-24" id="complete" ></div>
-</div>
-<div id="game" class="span-24" style="text-align: center">
-    <div class="game-header">
-    </div>
-    <div class="game-info">
-    </div>
-    <div class="game-questions">
-        <div id="qb" class="span-24 last" style="text-align: center; font: bold; font-size: 36pt; height: 100px">
-        </div>
-        <div class="span-24 last"><div id="a0" class="ab"><div class="abox"> <div class="answer"></div></div></div></div>
-        <div class="span-24 last" style="height: 50px"></div>
-        <div class="span-24 center" id="alt_title"></div>
-        <div class="span-24">
-            <div class="span-4">&nbsp;</div>
-            <div class="span-8"><div id="a1" class="ab"><div class="abox"> <div class="answer"></div></div></div></div>
-            <div class="span-8 last"><div id="a2" class="ab"><div class="abox"><div class="answer"></div></div></div></div>
-        </div>
-        <div class="span-24 last" style="height: 20px"></div>
-        <div class="span-24">
-            <div class="span-4">&nbsp;</div>
-            <div class="span-8"><div id="a3" class="ab"><div class="abox"><div class="answer"></div></div></div></div>
-            <div class="span-8 last"><div id="a4" class="ab"><div class="abox"><div class="answer"></div></div></div></div>
-        </div>
-    </div>
-</div>
+{% endblock %}
+
+
+{% block script %}
+
+
+    <script type="text/javascript">
+
+        {% include 'quad.js' %}
+
+    </script>
+
 {% endblock %}

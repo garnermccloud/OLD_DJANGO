@@ -177,7 +177,7 @@ def completed_from_listigain(request, task_id, time_spent):
         new_time = int(time_spent) + completed_task.time
         Task.objects.filter(id=completed_task.pk).update(completed=True)
         Task.objects.filter(id=completed_task.pk).update(time=new_time)
-        return HttpResponseRedirect('/listigain/quad/complete')
+        return HttpResponseRedirect('/listigain/quad/completed_break')
     else:
         return HttpResponseRedirect('/listigain/')
 
@@ -232,7 +232,7 @@ def time_up_from_listigain(request, task_id, time_spent):
     if completed_task.user == request.user:
         new_time = int(time_spent) + completed_task.time
         Task.objects.filter(id=completed_task.pk).update(time=new_time)
-        return HttpResponseRedirect('/listigain/quad/complete')
+        return HttpResponseRedirect('/listigain/quad/time_up_break')
     else:
         return HttpResponseRedirect('/listigain/')
 
@@ -255,6 +255,3 @@ def quad_from_listigain(request, task_id):
     else:
         return HttpResponseRedirect('/listigain/')
 
-@login_required
-def quad_redirect(request):
-    return HttpResponseRedirect('/listigain/quad')

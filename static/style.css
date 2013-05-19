@@ -21,7 +21,7 @@
 /**************************************/
 /*              GLOBALS               */
 /**************************************/
-body {background-color: #ffffff;}
+body {background-color: #ffffff; }
 /**************************************/
 /*              HEADER                */
 /**************************************/
@@ -48,6 +48,12 @@ div {
 
 .no_margin {
     margin: 0em;
+}
+
+
+.quad_main_task {
+
+
 }
 
 
@@ -92,7 +98,7 @@ div {
 }
 
 .orange {
-    color: #fef4e9;
+    color: #ffffff;
     border: solid 1px #da7c0c;
     background: #f78d1d;
     background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));

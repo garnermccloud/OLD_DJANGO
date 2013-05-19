@@ -1,0 +1,89 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div id="sound"></div>
+    <div class="splash ">
+        <div class="spash-header">
+        </div>
+        <div class="spash-buttons">
+        </div>
+    </div>
+    <div class="gameover"></div>
+    <div id="taskscreen">
+        <div class="span-24" id="task_info" ></div>
+        <div class="span-24" id="complete" ></div>
+    </div>
+
+    <div class="span-24" id="break_screen" ></div>
+
+    <div id="game" class="span-24" style="text-align: center">
+        <div class="game-header">
+        </div>
+        <div class="game-info">
+        </div>
+        <div class="game-questions">
+            <div id="qb" class="span-24 last" style="text-align: center; font: bold; font-size: 36pt; height: 100px">
+            </div>
+            <div class="span-24 last"><div id="a0" class="ab"><div class="abox"> <div class="answer"></div></div></div></div>
+            <div class="span-24 last" style="height: 50px"></div>
+            <div class="span-24 center" id="alt_title"></div>
+            <div class="span-24">
+                <div class="span-4">&nbsp;</div>
+                <div class="span-8"><div id="a1" class="ab"><div class="abox"> <div class="answer"></div></div></div></div>
+                <div class="span-8 last"><div id="a2" class="ab"><div class="abox"><div class="answer"></div></div></div></div>
+            </div>
+            <div class="span-24 last" style="height: 20px"></div>
+            <div class="span-24">
+                <div class="span-4">&nbsp;</div>
+                <div class="span-8"><div id="a3" class="ab"><div class="abox"><div class="answer"></div></div></div></div>
+                <div class="span-8 last"><div id="a4" class="ab"><div class="abox"><div class="answer"></div></div></div></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+
+        $('#game').hide();
+        $('#taskscreen').hide();
+        $('#break_screen').fadeIn('500');
+        break_left = 10;
+        var y;
+        $('#break_screen').html('<div class="span-24" style="text-align: left; font-size: 16pt; line-height: 24pt; padding-bottom: 100px"><p style="padding-bottom: 50px; font-size: 24pt"><div class="span-6">&nbsp;</div><div class="span-12"> '
+                + '<div align="center" style="font-size: 24pt; font-weight: 750; padding-bottom: 20px" >It\'s Break Time!</div><div id="break_time" align="center" style="padding-bottom: 25px; font-size: 36pt; color: red;"></div>'
+                + '<p>Congrats, you just completed 25 minutes of work on your task!  You are a step closer to completing it!  Doesn\'t that feel good?</br></br> Now you have 5 minutes of break time to relax!  Don\'t work during this time please, it\'s meant for relaxing and unwinding.</br></br>'
+                + ' When the timer is up, you will hear a ring to know it is time to move to your next task.</br></br>'
+                + '<div align="center"> <iframe width="560" height="315" src="http://www.youtube.com/embed/sAqs_RKwfg8" frameborder="0" allowfullscreen></iframe></div>'
+                + '</p></div><div class="span-6">&nbsp;</div></div>'
+        );
+
+
+        y=setTimeout(function(){startTime()},50);
+        function startTime()
+        {
+            var minutes = Math.floor(break_left/60);
+            break_left -= minutes*60;
+            document.getElementById('break_time').innerHTML=LeadingZero(minutes) + ":" + LeadingZero(break_left);
+            break_left--;
+            break_left+=minutes*60;
+            if (break_left == 4) {
+                $('#sound').html('<audio autoplay><source src="/static/audio/beep.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>');
+            }
+            if (break_left == 0) {
+                $('#sound').html('<audio autoplay><source src="/static/audio/gong.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>');
+            }
+            if (break_left >=0) {
+                y=setTimeout(function(){startTime()},1000);
+            }
+            else {
+                $('#sound').html('<audio autoplay><source src="/static/audio/gong.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>');
+                break_left = 0;
+                window.clearTimeout(y);
+                window.location.replace('/listigain/quad');
+            }
+        }
+
+    </script>
+
+{% endblock %}
