@@ -17,10 +17,33 @@ Main page of the Writigain.
         <h2>Welcome, {{ user.username }}</h2>
         <h3>Add a task</h3>
     </section>
-    <div id="container" style="width:1000px">
+    <div id="container" class="span-24">
     <form action="/listigain/add" method="post">{% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Submit" />
     </form>
+
     </div>
+
+
+{% endblock %}
+{% block script %}
+    <script>
+        $(function() { $('#id_date_due').datetimepicker(); });
+        $(function() {
+            var select = $( "#id_complete_percentage" );
+            var slider = $( "<div id='slider' style='width: 200px; margin-top: 5px'></div>" ).insertAfter( select ).slider({
+                min: 1,
+                max: 101,
+                range: "min",
+                value: select[ 0 ].selectedIndex + 1,
+                slide: function( event, ui ) {
+                    select[ 0 ].selectedIndex = ui.value - 1;
+                }
+            });
+            select.change(function() {
+                slider.slider( "value", this.selectedIndex + 1 );
+            });
+        });
+    </script>
 {% endblock %}

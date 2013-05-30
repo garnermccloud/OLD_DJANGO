@@ -42,12 +42,15 @@ var quad = {
         this.turn = 1; // turn count
         this.sec_left = null; // number of seconds left for the countdown timer
         this.break_left = null; // number of seconds left for the countdown timer
+        this.start_time = null; // start time for a task
+        this.end_time = null; // end time for a task
+        this.percent_completed = null; // percent completed for a task
         this.submitted = true;
         this.initialized = false;
         this.id = null;
         // setup click handlers for answers
         $('.ab').each(function () {
-            $(this).click(quad.answer_click1);
+            $(this).click(quad.task_selected);
         });
         $('#complete').click(quad.completed);
 
@@ -77,12 +80,13 @@ var quad = {
 
 
     },
-    answer_click1:function () {
+    task_selected:function () {
 
         // check to see if the word is correct
 
         quad.id = $(this).attr('id');
         quad.sec_left = quad.TURNTIME;
+        quad.start_time = new Date().getTime();
         var t;
 
         for (var i = 0; i < quad.wl.length; i++) {
@@ -115,22 +119,7 @@ var quad = {
                         quad.time_up();
                     }
                  }
-/*
-                t = setTimeout(start(),1000);
-                   function start() {
-                        var minutes = Math.floor(seconds/60);
-                        seconds -= minutes*60;
-                        document.getElementById('txt').innerHTML=LeadingZero(minutes) + ":" + LeadingZero(seconds);
-                        seconds--;
-                        seconds+=minutes*60;
-                        if (seconds > 0) {
-                        t = setTimeout(start(),1000);
-                        }
-                        else {
-                            clearTimeout(t);
-                        }
-                    }
-*/
+
 
 
 
@@ -139,9 +128,27 @@ var quad = {
             }
         }
     },
+    update_percent_complete:function () {
+        var selectList = "<select name='numbers'>";
+        for (var x = 1; x < 101; x++) {
+            selectList += "<option>" + x + "</option>";
+        }
+        selectList += "</select>";
+
+        for (var i = 0; i < quad.wl.length; i++) {
+            if (quad.id == 'a' + i) {
+                quad.percent_completed = quad.wl[i]['complete_percentage'];
+                $('#task_info').fadeTo(100, 0.1);
+                $('#complete').fadeTo(100, 0.1);
+
+
+            }
+        }
+    },
 
 
     completed:function () {
+        quad.end_time = new Date().getTime();
         window.clearTimeout(quad.t);
         if (quad.submitted) {
             return false;
@@ -152,9 +159,8 @@ var quad = {
 
         for (var i = 0; i < quad.wl.length; i++) {
             if (quad.id == 'a' + i) {
-                var time_spent = quad.TURNTIME - quad.sec_left;
                 $.ajax({
-                    url:'/listigain/'+quad.wl[i]['id']+'/'+time_spent+'/completed',
+                    url:'/listigain/'+quad.wl[i]['id']+'/'+quad.start_time+'/'+quad.end_time+'/completed',
                     cache:'false',
                     dataType:'json',
                     async:'false',
@@ -179,6 +185,7 @@ var quad = {
         }
     },
     time_up:function () {
+        quad.end_time = new Date().getTime();
         window.clearTimeout(quad.t);
         if (quad.submitted) {
             return false;
@@ -189,9 +196,8 @@ var quad = {
 
         for (var i = 0; i < quad.wl.length; i++) {
             if (quad.id == 'a' + i) {
-                var time_spent = quad.TURNTIME - quad.sec_left;
                 $.ajax({
-                    url:'/listigain/'+quad.wl[i]['id']+'/'+time_spent+'/time_up',
+                    url:'/listigain/'+quad.wl[i]['id']+'/'+quad.start_time+'/'+quad.end_time+'/time_up',
                     cache:'false',
                     dataType:'json',
                     async:'false',
@@ -291,45 +297,7 @@ var quad = {
     },
 
 
-/*
-    show_answer:function () {
-        clearInterval(game.s); // stop the countdown timer
-        // reset opacity
-        $('.ab').each(function () {
-            $(this).removeAttr("style");
-        });
-        var wrong_answers = [];
-        for (var cnt = 0; cnt < game.wl.length; cnt++) {
-            if (cnt != game.wd['s']) {
-                wrong_answers.push(cnt);
-            }
-        }
-        jQuery.each(wrong_answers, function (index, value) {
-            $('#a' + value).hide("puff", {}, '1000', function () {
-                if (index == wrong_answers.length - 1) {
-                    //last wrong answer has faded out,
-                    //now move the correct one
-                    var pos0 = $('#a' + game.wd['s']).position();
-                    // change the style
 
-                    $('#a' + game.wd['s']).css({
-                        position:'absolute',
-                        top:pos0.top
-
-                    }).animate(
-                        {
-                            top:160,
-                            left:145
-                        },
-                        500, function () {
-                            setTimeout(game.new_turn, 900);
-                        }
-                    );
-                }
-            });
-        });
-    },
-*/
     new_turn:function () {
         $('.nt').hide();
         $('#break_screen').html('');
@@ -350,32 +318,7 @@ var quad = {
                 for (var j = 0; j < quad.wl.length; j++) {
                     $('div#a' + j + ' .answer').html('');
                 }
-                //$('.ct').html(game.sec_left);
-              //  game.s = setInterval(function () {
-               //     if (game.sec_left <= 1) {
-                  //      if (game.submitted) {
-                //            return false;
-                 //       } else {
-                 //           game.submitted = true;
-                   //     }
-                       // clearInterval(game.s); // stop the countdown timer
-                      //  $('.nt').css({
-                     //       'backgroundImage':'url("{{STATIC_PREFIX}}img/outoftime.png")'
-                      //  });
-                       // $('.nt').fadeIn('slow', function () {
-                       //     game.show_answer();
-                       // });
 
-                //    } else {
-               //         game.sec_left = game.TURNTIME - (game.unix_time() - time);
-                 //       if (game.sec_left >= 1) {
-                            // just to be paranoid..
-                          //  $('.ct').html(game.sec_left);
-              //          }
-              //      }
-              //  }, 1000);
-
-                // reset the answer board
                 $('.ab').each(function () {
                     $(this).removeAttr("style");
                 });

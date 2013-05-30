@@ -19,6 +19,8 @@
         var s = null;  //setInterval (for the countdown timer)
         var turn = 1; // turn count
         var sec_left = null; // number of seconds left for the countdown timer
+        var start_time = null; // start time of the task
+        var end_time = null; // start time of the task
         var submitted = true;
         var initialized = false;
         var id = null;
@@ -29,6 +31,7 @@
 
         // grab the word list
         sec_left = TURNTIME;
+        start_time = new Date().getTime();
         var t;
 
 
@@ -68,17 +71,19 @@
 
 
         function completed() {
+            end_time = new Date().getTime();
             window.clearInterval()
             var time_spent = TURNTIME - sec_left;
             started_from_listigain = true;
-            window.location.replace('/listigain/'+task_id+'/'+time_spent+'/completed_from_listigain');
+            window.location.replace('/listigain/'+task_id+'/'+start_time+'/'+end_time+'/completed_from_listigain');
 
         }
         function time_up() {
+            end_time = new Date().getTime();
             window.clearInterval()
             var time_spent = TURNTIME - sec_left;
             started_from_listigain = true;
-            window.location.replace('/listigain/'+task_id+'/'+time_spent+'/time_up_from_listigain');
+            window.location.replace('/listigain/'+task_id+'/'+start_time+'/'+end_time+'/time_up_from_listigain');
         }
 
 
